@@ -37,7 +37,7 @@
 
 - (void)configBageNum:(NSString *)bageNum {
     
-    BOOL hidenBage = [JsenValidationKit isValueEmpty:bageNum] || [bageNum intValue] == 0;
+    BOOL hidenBage = [JsenValidationKit isValueEmpty:bageNum] || [bageNum intValue] <= 0;
     BOOL bageBigerThanMax = [bageNum intValue] > 99;
     hidenBage ? [self showBage:NO] : [self showBage:YES];
     bageBigerThanMax ? [self.bageLabel setText:@".."]:[self.bageLabel setText:bageNum];

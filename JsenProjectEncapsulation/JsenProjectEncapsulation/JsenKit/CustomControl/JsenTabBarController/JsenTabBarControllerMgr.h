@@ -22,4 +22,8 @@
 - (void)configThirdBage:(NSString *)bageNum;
 - (void)configFourthBage:(NSString *)bageNum;
 
+//隐藏显示tabbar
+- (void)showWithAnimation:(BOOL)animation;
+- (void)hidenWithAnimation:(BOOL)animation;
+
 @end

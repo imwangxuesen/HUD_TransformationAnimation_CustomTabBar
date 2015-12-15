@@ -14,11 +14,17 @@
 @property (nonatomic , strong) NSArray * attributes;
 @property (nonatomic , assign) BOOL showPlusItem;
 
+//配置tabbarcontroller 的属性
 - (void)configAttributes:(NSArray *)attributes controllers:(NSArray *)controllers showPlusItem:(BOOL)showPlusItem;
 
+//config bage 数目
 - (void)configFirstBage:(NSString *)bageNum;
 - (void)configSecondBage:(NSString *)bageNum;
 - (void)configThirdBage:(NSString *)bageNum;
 - (void)configFourthBage:(NSString *)bageNum;
+
+//隐藏显示tabbar
+- (void)showWithAnimation:(BOOL)animation;
+- (void)hidenWithAnimation:(BOOL)animation;
 
 @end

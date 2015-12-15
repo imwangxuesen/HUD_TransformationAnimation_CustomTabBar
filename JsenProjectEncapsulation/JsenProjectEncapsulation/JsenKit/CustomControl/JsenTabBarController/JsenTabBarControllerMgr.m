@@ -87,4 +87,15 @@
     [self.tabBarController configFourthBage:bageNum];
 }
 
+
+#pragma mark - Show Or hiden
+- (void)showWithAnimation:(BOOL)animation {
+
+    [self.tabBarController showWithAnimation:animation];
+}
+
+- (void)hidenWithAnimation:(BOOL)animation {
+    
+    [self.tabBarController hidenWithAnimation:animation];
+}
 @end
