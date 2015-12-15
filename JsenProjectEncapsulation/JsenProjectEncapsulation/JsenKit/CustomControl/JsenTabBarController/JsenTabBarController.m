@@ -30,8 +30,6 @@ static const CGFloat TabBar_Height = 49.0;
     [self createCustomTabBar];
     [self createControllers];
     
-    
-    
 }
 
 - (void)viewDidLoad {
@@ -51,6 +49,7 @@ static const CGFloat TabBar_Height = 49.0;
     
 }
 
+//创建自定义tabbar
 - (void)createCustomTabBar {
     
     JsenCustomTabBarView * tabBarView = [[JsenCustomTabBarView alloc] initWithFrame:CGRectMake(0, IH_DEVICE_HEIGHT - TabBar_Height, IH_DEVICE_WIDTH, TabBar_Height)];
@@ -61,7 +60,7 @@ static const CGFloat TabBar_Height = 49.0;
     self.tabBarView = tabBarView;
     
 }
-
+//更新itme 状态
 - (void)updateItemsStatus:(JsenTabBarItem *)item {
      self.selectedIndex = item.tag;
     for (UIView *subView in self.tabBarView.subviews) {
@@ -76,7 +75,7 @@ static const CGFloat TabBar_Height = 49.0;
     }
 }
 
-
+#pragma mark - Config Bage Num
 - (void)configFirstBage:(NSString *)bageNum {
     if (self.tabBarView) {
         [self.tabBarView configFirstBage:bageNum];
@@ -102,10 +101,7 @@ static const CGFloat TabBar_Height = 49.0;
 }
 
 #pragma mark - JsenCustomTabBarViewDelegate
-
 - (void)plusItemClicked:(JsenTabBarItem *)item {
-//    [self updateItemsStatus:item];
-    JSENLOGINFO(@"plus button cliked:");
     
 }
 
@@ -125,6 +121,34 @@ static const CGFloat TabBar_Height = 49.0;
 
 - (void)fouthItemClicked:(JsenTabBarItem *)item {
     [self updateItemsStatus:item];
+    
+}
+
+#pragma mark - Show Or Hiden TabBar
+- (void)showWithAnimation:(BOOL)animation {
+    CGFloat showY = IH_DEVICE_HEIGHT - self.tabBarView.bounds.size.height;
+    if (showY == self.tabBarView.frame.origin.y) {
+        return;
+    }
+    
+    [UIView animateWithDuration:(animation?0.3:0) animations:^{
+        [self.tabBarView setFrame:CGRectMake(0, showY,  self.tabBarView.bounds.size.width, self.tabBarView.bounds.size.height)];
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+}
+- (void)hidenWithAnimation:(BOOL)animation {
+    CGFloat plusY = self.tabBarView.plusItem.frame.origin.y >= 0 ? 0 : self.tabBarView.plusItem.frame.origin.y;
+     CGFloat hidenY = IH_DEVICE_HEIGHT - plusY;
+    if (hidenY == self.tabBarView.frame.origin.y) {
+        return;
+    }
+    [UIView animateWithDuration:(animation?0.3:0) animations:^{
+        [self.tabBarView setFrame:CGRectMake(0, hidenY,  self.tabBarView.bounds.size.width, self.tabBarView.bounds.size.height)];
+    } completion:^(BOOL finished) {
+        
+    }];
     
 }
 
