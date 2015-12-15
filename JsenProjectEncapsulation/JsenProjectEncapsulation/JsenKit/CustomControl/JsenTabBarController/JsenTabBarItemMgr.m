@@ -36,26 +36,27 @@ static const NSInteger TabBarItem_BageFontSize = 9;
 
 + (JsenTabBarItem *)mgrTabBarItem:(JsenTabBarItemAttribute *)attribute frame:(CGRect)frame {
     JsenTabBarItem * item = [[JsenTabBarItem alloc] init];
-    CGFloat buttonWidth = frame.size.width;
+    CGFloat buttonWidth  = frame.size.width;
     CGFloat buttonHeight = frame.size.height;
     [item setFrame:CGRectMake(200, 100, buttonWidth, buttonHeight)];
     item.attribute = attribute;
+    
     //设置title的偏移
     CGFloat titleEdgeInsetsTop = TabBarItem_ItemImageWH + TabBarItem_TitleH + TabBarItem_ImageTextBorad;
     item.titleEdgeInsets = UIEdgeInsetsMake(titleEdgeInsetsTop, -180, TabBarItem_TitleH, 0);
     
     //设置image的偏移
     CGFloat imageEdgeInsetsLeftAndRight = (buttonWidth - TabBarItem_ItemImageWH) / 2.0;
-    CGFloat imageEdgeInsetsBottom = (buttonHeight - TabBarItem_ItemImageWH);
+    CGFloat imageEdgeInsetsBottom       = (buttonHeight - TabBarItem_ItemImageWH);
     item.imageEdgeInsets = UIEdgeInsetsMake(0, imageEdgeInsetsLeftAndRight, imageEdgeInsetsBottom , imageEdgeInsetsLeftAndRight);
     
     //设置bagelabel 的属性
-    CGFloat bageRadius = TabBarItem_BageWH/2.0;
+    CGFloat bageRadius  = TabBarItem_BageWH/2.0;
     UILabel * bageLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(item.imageView.frame) - bageRadius, -bageRadius, TabBarItem_BageWH, TabBarItem_BageWH)];
     bageLabel.backgroundColor       = UIColorFromRGB(TabBarItem_BageBackgroundColor);
     bageLabel.textAlignment         = NSTextAlignmentCenter;
     bageLabel.font                  = [UIFont fontWithName:TabBarItem_BageFontName size:TabBarItem_BageFontSize];
-    bageLabel.textColor             = [UIColor whiteColor];
+    bageLabel.textColor             = UIColorFromRGB(TabBarItem_BageTextColor);
     bageLabel.layer.cornerRadius    = bageRadius;
     bageLabel.layer.masksToBounds   = YES;
     [item addSubview:bageLabel];
