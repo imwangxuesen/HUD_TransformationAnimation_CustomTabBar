@@ -8,6 +8,17 @@
 
 #import "JsenBaseView.h"
 #import "JsenTabBarItem.h"
+
+@protocol JsenCustomTabBarViewDelegate <NSObject>
+
+- (void)plusItemClicked:(UIButton *)item;
+- (void)firstItemClicked:(JsenTabBarItem *)item;
+- (void)secondItemClicked:(JsenTabBarItem *)item;
+- (void)thirdItemClicked:(JsenTabBarItem *)item;
+- (void)fouthItemClicked:(JsenTabBarItem *)item;
+
+@end
+
 @interface JsenCustomTabBarView : JsenBaseView
 
 @property (nonatomic , strong) JsenTabBarItem * firstItem;
@@ -17,7 +28,13 @@
 @property (nonatomic , strong) UIButton * plusItem;
 
 @property (nonatomic , strong) NSArray * attributes;
-@property (nonatomic , readonly , assign) BOOL showPlusButton;
+@property (nonatomic , assign) BOOL showPlusButton;
 
-- (instancetype)initWithFrame:(CGRect)frame showPlusButton:(BOOL)showPlusButton attributes:(NSArray *)attributes;
+@property (nonatomic , weak) id<JsenCustomTabBarViewDelegate>delegate;
+
+
+- (void)configFirstBage:(NSString *)bageNum;
+- (void)configSecondBage:(NSString *)bageNum;
+- (void)configThirdBage:(NSString *)bageNum;
+- (void)configFourthBage:(NSString *)bageNum;
 @end

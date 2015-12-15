@@ -9,5 +9,9 @@
 #import "JsenFoundViewController.h"
 
 @implementation JsenFoundViewController
-
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
+}
 @end

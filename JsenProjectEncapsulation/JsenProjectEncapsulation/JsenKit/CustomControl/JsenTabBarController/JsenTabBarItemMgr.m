@@ -5,25 +5,7 @@
 //  Created by WangXuesen on 15/12/14.
 //  Copyright © 2015年 hearst. All rights reserved.
 //
-// image的宽高
-static const CGFloat TabBarItem_ItemImageWH     = 22;
-// image 和 title 之间的间距
-static const CGFloat TabBarItem_ImageTextBorad  = 3;
-// titlelabel 的高度
-static const CGFloat TabBarItem_TitleH          = 10;
-// bagelabel 的宽高（直径）
-static const CGFloat TabBarItem_BageWH          = 14;
-// bagelabel 的背景颜色
-static const int     TabBarItem_BageBackgroundColor = 0xCC99090;
-// bagelabel 的字体颜色
-static const int     TabBarItem_BageTextColor = 0xffffff;
-// bagelabel 的字号
-static const NSInteger TabBarItem_BageFontSize = 9;
-// bagelabel 的字体名字
-#define  TabBarItem_BageFontName  @"AppleGothic"
-//static const NSString * TabBarItem_BageFontName = @"AppleGothic";
 
-#define  TabBarItem_BageFontName_PlusButtonImageName  @"img_avatar"
 
 
 
@@ -31,27 +13,37 @@ static const NSInteger TabBarItem_BageFontSize = 9;
 #import "JsenTabBarItemMgr.h"
 #import "JsenTabBarItemAttribute.h"
 #import "JsenTabBarItem.h"
+#import "JsenTabBarConfig.h"
 @implementation JsenTabBarItemMgr
 
 
-+ (JsenTabBarItem *)mgrTabBarItem:(JsenTabBarItemAttribute *)attribute frame:(CGRect)frame {
++ (JsenTabBarItem *)mgrTabBarItem:(JsenTabBarItemAttribute *)attribute frame:(CGRect)frame tag:(NSInteger)tag {
     JsenTabBarItem * item = [[JsenTabBarItem alloc] init];
     CGFloat buttonWidth = frame.size.width;
-    CGFloat buttonHeight = frame.size.height;
-    [item setFrame:CGRectMake(200, 100, buttonWidth, buttonHeight)];
+    [item setFrame:frame];
     item.attribute = attribute;
-    //设置title的偏移
-    CGFloat titleEdgeInsetsTop = TabBarItem_ItemImageWH + TabBarItem_TitleH + TabBarItem_ImageTextBorad;
-    item.titleEdgeInsets = UIEdgeInsetsMake(titleEdgeInsetsTop, -180, TabBarItem_TitleH, 0);
+    item.tag = tag;
     
-    //设置image的偏移
-    CGFloat imageEdgeInsetsLeftAndRight = (buttonWidth - TabBarItem_ItemImageWH) / 2.0;
-    CGFloat imageEdgeInsetsBottom = (buttonHeight - TabBarItem_ItemImageWH);
-    item.imageEdgeInsets = UIEdgeInsetsMake(0, imageEdgeInsetsLeftAndRight, imageEdgeInsetsBottom , imageEdgeInsetsLeftAndRight);
+    CGFloat imageX = item.imageView.frame.origin.x;
+    CGFloat imageY = item.imageView.frame.origin.y;
+    CGFloat imageW = item.imageView.image.size.width;
+    CGFloat labelW = item.titleLabel.frame.size.width;
+    
+    //设置imge的偏移
+    [item.imageView setContentMode:UIViewContentModeCenter];
+    [item.titleLabel setContentMode:UIViewContentModeCenter];
+    CGFloat imageEdgeInsetsTop  = imageY > 5 ? 5-imageY : imageY;
+    CGFloat imageEdgeInsetsLeft = (buttonWidth-imageW-imageX)/2;
+    [item setImageEdgeInsets:UIEdgeInsetsMake(imageEdgeInsetsTop, imageEdgeInsetsLeft, 0.f, 0.f)];
+    
+    //设置label的偏移
+    CGFloat labelEdgeInsetsTop  = CGRectGetMaxY(item.imageView.frame);
+    CGFloat labelEdgeInsetsLeft = -item.titleLabel.center.x + (buttonWidth-labelW)/2;
+    [item setTitleEdgeInsets:UIEdgeInsetsMake(labelEdgeInsetsTop, labelEdgeInsetsLeft, 0.f, 0.f)];
     
     //设置bagelabel 的属性
-    CGFloat bageRadius = TabBarItem_BageWH/2.0;
-    UILabel * bageLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(item.imageView.frame) - bageRadius, -bageRadius, TabBarItem_BageWH, TabBarItem_BageWH)];
+    CGFloat bageRadius  = TabBarItem_BageWH/2.0;
+    UILabel * bageLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(item.imageView.frame) - bageRadius, 0, TabBarItem_BageWH, TabBarItem_BageWH)];
     bageLabel.backgroundColor       = UIColorFromRGB(TabBarItem_BageBackgroundColor);
     bageLabel.textAlignment         = NSTextAlignmentCenter;
     bageLabel.font                  = [UIFont fontWithName:TabBarItem_BageFontName size:TabBarItem_BageFontSize];
@@ -64,19 +56,21 @@ static const NSInteger TabBarItem_BageFontSize = 9;
     return item;
 }
 
-
 + (UIButton *)configPlusButton:(NSString *)image_nor {
-    if (image_nor !=nil) {
-        UIButton * plusButton = [[UIButton alloc] init];
-        [plusButton setImage:[UIImage imageNamed:image_nor] forState:UIControlStateNormal];
-        return plusButton;
-    } else {
-        
-        UIButton * plusButton = [[UIButton alloc] init];
-        [plusButton setImage:[UIImage imageNamed:TabBarItem_BageFontName_PlusButtonImageName] forState:UIControlStateNormal];
-        return plusButton;
-    }
     
+    CGFloat plusW = 64;
+    CGFloat plusH = 59;
+    CGFloat plusY = -15;
+    CGFloat plusX = (IH_DEVICE_WIDTH - plusW)/2.0;
+    CGRect plusFrame = CGRectMake(plusX, plusY, plusW, plusH);
+    UIButton * plusButton = [[UIButton alloc] initWithFrame:plusFrame];
+    if (image_nor !=nil) {
+        [plusButton setBackgroundImage:[UIImage imageNamed:image_nor] forState:UIControlStateNormal];
+        
+    } else {
+        [plusButton setBackgroundImage:[UIImage imageNamed:TabBarItem_BageFontName_PlusButtonImageName] forState:UIControlStateNormal];
+    }
+    return plusButton;
 }
 
 @end

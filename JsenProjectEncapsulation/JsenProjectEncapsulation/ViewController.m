@@ -23,10 +23,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    JsenTabBarItem *item = [JsenTabBarItemMgr mgrTabBarItem:[[JsenTabBarItemAttribute alloc] initWithTitle:@"nihDDDao" imageNameForSel:@"img_avatar" imageNameForNor:@"img_avatar"] frame:CGRectMake(100, 100, 78, 40)];
-    [item configBageNum:@"1"];
-    [self.view addSubview:item];
-    
     
     self.jsenModel = [[JsenModel alloc] init];
     self.jsenModel.modelDelegate = self;

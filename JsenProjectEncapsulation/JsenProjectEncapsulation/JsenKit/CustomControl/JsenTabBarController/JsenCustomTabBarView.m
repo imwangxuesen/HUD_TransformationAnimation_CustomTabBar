@@ -9,33 +9,20 @@
 #import "JsenCustomTabBarView.h"
 #import "JsenTabBarItemAttribute.h"
 #import "JsenTabBarItemMgr.h"
-#import <objc/runtime.h>
 
-
-static const char plusItem;
-
+static const int TabBar_BackgroundColor = 0xffffff;
 
 @interface JsenCustomTabBarView()
-@property (nonatomic , readwrite , assign)BOOL showPlusButton;
 
 @end
 
 @implementation JsenCustomTabBarView
 
-- (instancetype)initWithFrame:(CGRect)frame showPlusButton:(BOOL)showPlusButton attributes:(NSArray *)attributes
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.showPlusButton = showPlusButton;
-        self.attributes = attributes;
-    }
-    return self;
-}
-
-
+#pragma mark - Set Get
 - (void)setAttributes:(NSArray *)attributes {
     
     _attributes = attributes;
+    [self setBackgroundColor:UIColorFromRGB(TabBar_BackgroundColor)];
     if (self.showPlusButton) {
         [self addPlusButton];
     }
@@ -51,10 +38,9 @@ static const char plusItem;
             break;
     }
     
-    
-    
 }
 
+#pragma mark - Private Method
 - (void)addTwoItems {
     CGFloat plusItemW = self.showPlusButton ? self.plusItem.bounds.size.width : 0;
     
@@ -64,7 +50,9 @@ static const char plusItem;
     CGFloat firstH = self.bounds.size.height - firstY;
     CGRect firstItemFrame = CGRectMake(firstX, firstY, firstW, firstH);
     JsenTabBarItem * firstItem = [[JsenTabBarItem alloc] initWithFrame:firstItemFrame];
+    firstItem.tag = 0;
     firstItem.attribute = self.attributes[0];
+    [firstItem addTarget:self action:@selector(firstItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:firstItem];
     self.firstItem = firstItem;
     
@@ -74,7 +62,9 @@ static const char plusItem;
     CGFloat secondH = firstH;
     CGRect secondItemFrame = CGRectMake(secondX, secondY, secondW, secondH);
     JsenTabBarItem * secondItem = [[JsenTabBarItem alloc] initWithFrame:secondItemFrame];
+    secondItem.tag = 1;
     secondItem.attribute = self.attributes[1];
+    [secondItem addTarget:self action:@selector(secondItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:secondItem];
     self.secondItem = secondItem;
     
@@ -84,12 +74,12 @@ static const char plusItem;
     CGFloat plusItemW = self.showPlusButton ? self.plusItem.bounds.size.width : 0;
     
     CGFloat firstX = 0;
-    CGFloat firstY = 7;
+    CGFloat firstY = 0;
     CGFloat firstW = (self.bounds.size.width - plusItemW)/4.0;
     CGFloat firstH = self.bounds.size.height - firstY;
     CGRect firstItemFrame = CGRectMake(firstX, firstY, firstW, firstH);
-    JsenTabBarItem * firstItem = [[JsenTabBarItem alloc] initWithFrame:firstItemFrame];
-    firstItem.attribute = self.attributes[0];
+    JsenTabBarItem * firstItem = [JsenTabBarItemMgr mgrTabBarItem:self.attributes[0] frame:firstItemFrame tag:0];
+    [firstItem addTarget:self action:@selector(firstItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:firstItem];
     self.firstItem = firstItem;
     
@@ -98,8 +88,8 @@ static const char plusItem;
     CGFloat secondW = firstW;
     CGFloat secondH = firstH;
     CGRect secondItemFrame = CGRectMake(secondX, secondY, secondW, secondH);
-    JsenTabBarItem * secondItem = [[JsenTabBarItem alloc] initWithFrame:secondItemFrame];
-    secondItem.attribute = self.attributes[1];
+    JsenTabBarItem * secondItem = [JsenTabBarItemMgr mgrTabBarItem:self.attributes[1] frame:secondItemFrame tag:1];
+    [secondItem addTarget:self action:@selector(secondItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:secondItem];
     self.secondItem = secondItem;
     
@@ -108,8 +98,8 @@ static const char plusItem;
     CGFloat thirdW = secondW;
     CGFloat thirdH = secondH;
     CGRect thirdItemFrame = CGRectMake(thirdX, thirdY, thirdW, thirdH);
-    JsenTabBarItem * thirdItem = [[JsenTabBarItem alloc] initWithFrame:thirdItemFrame];
-    thirdItem.attribute = self.attributes[2];
+    JsenTabBarItem * thirdItem = [JsenTabBarItemMgr mgrTabBarItem:self.attributes[2] frame:thirdItemFrame tag:2];
+    [thirdItem addTarget:self action:@selector(thirdItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:thirdItem];
     self.thirdItem = thirdItem;
     
@@ -118,32 +108,69 @@ static const char plusItem;
     CGFloat fouthW = thirdW;
     CGFloat fouthH = thirdH;
     CGRect fouthItemFrame = CGRectMake(fouthX, fouthY, fouthW, fouthH);
-    JsenTabBarItem * fouthItem = [[JsenTabBarItem alloc] initWithFrame:fouthItemFrame];
-    secondItem.attribute = self.attributes[3];
+    JsenTabBarItem *fouthItem = [JsenTabBarItemMgr mgrTabBarItem:self.attributes[3] frame:fouthItemFrame tag:3];
+    [fouthItem addTarget:self action:@selector(fouthItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:fouthItem];
     self.fouthItem = fouthItem;
 }
 
 - (void)addPlusButton {
     UIButton *plus = [JsenTabBarItemMgr configPlusButton:nil];
-    
-//    objc_setAssociatedObject(self, &plusItem, plus, OBJC_ASSOCIATION_RETAIN);
+    [plus addTarget:self action:@selector(plusItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:plus];
+    self.plusItem = plus;
+
+}
+
+- (void)configFirstBage:(NSString *)bageNum {
+    if (self.firstItem) {
+        [self.firstItem configBageNum:bageNum];
+    }
+}
+
+- (void)configSecondBage:(NSString *)bageNum {
+    if (self.secondItem) {
+        [self.secondItem configBageNum:bageNum];
+    }
+}
+
+- (void)configThirdBage:(NSString *)bageNum {
+    if (self.thirdItem) {
+        [self.thirdItem configBageNum:bageNum];
+    }
+}
+
+- (void)configFourthBage:(NSString *)bageNum {
+    if (self.fouthItem) {
+        [self.fouthItem configBageNum:bageNum];
+    }
+}
+
+
+#pragma mark - Actions
+
+- (void)plusItemClicked:(UIButton *)item {
+    [self.delegate plusItemClicked:item];
+}
+
+- (void)firstItemClicked:(JsenTabBarItem *)item {
+    [self.delegate firstItemClicked:item];
     
 }
 
-//- (UIButton *)getPlusButton {
-//    return objc_getAssociatedObject(self, &plusItem);
-//}
-
-//- (void)addItemWithAttribute:(JsenTabBarItemAttribute *)attribute frame:(CGRect)frame{
-//    JsenTabBarItem *item = [JsenTabBarItemMgr mgrTabBarItem:attribute frame:frame];
-//    objc_setAssociatedObject(self, [attribute.attributeKey UTF8String], item, OBJC_ASSOCIATION_RETAIN);
+- (void)secondItemClicked:(JsenTabBarItem *)item {
+    [self.delegate secondItemClicked:item];
     
-//}
+}
 
-//- (JsenTabBarItem *)getItemWithKey:(char)key {
-//    return objc_getAssociatedObject(self, &key);
+- (void)thirdItemClicked:(JsenTabBarItem *)item {
+    [self.delegate thirdItemClicked:item];
     
-//}
+}
+
+- (void)fouthItemClicked:(JsenTabBarItem *)item {
+    [self.delegate fouthItemClicked:item];
+    
+}
 
 @end
