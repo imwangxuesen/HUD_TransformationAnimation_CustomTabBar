@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-@class JsenTabBarController;
+#import "JsenTabBarController.h"
 @interface JsenTabBarControllerMgr : NSObject
-@property (nonatomic,readonly,strong)JsenTabBarController * tabBarController;
+@property (nonatomic,strong)JsenTabBarController * tabBarController;
 
-- (JsenTabBarController *)mgrTabBarControllerWithControllers:(NSArray *)controllers itemsAttribute:(NSArray *)atribute showPlusItem:(BOOL)showPlusItem;
++ (instancetype)shareMgr;
+
+//配置attribute 目前只支持2个 或者 4个
+- (JsenTabBarController *)mgrTabBarController;
+
+//配置tabbar item 上的bage 数目
+- (void)configFirstBage:(NSString *)bageNum;
+- (void)configSecondBage:(NSString *)bageNum;
+- (void)configThirdBage:(NSString *)bageNum;
+- (void)configFourthBage:(NSString *)bageNum;
 
 @end

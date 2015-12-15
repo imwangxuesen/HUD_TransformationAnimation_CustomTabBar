@@ -9,5 +9,9 @@
 #import "JsenSettingViewController.h"
 
 @implementation JsenSettingViewController
-
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor redColor];
+}
 @end

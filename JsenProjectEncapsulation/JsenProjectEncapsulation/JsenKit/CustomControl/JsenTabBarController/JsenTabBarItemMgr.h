@@ -10,7 +10,7 @@
 #import "JsenTabBarItem.h"
 @interface JsenTabBarItemMgr : NSObject
 
-+ (JsenTabBarItem *)mgrTabBarItem:(JsenTabBarItemAttribute *)attribute frame:(CGRect)frame;
++ (JsenTabBarItem *)mgrTabBarItem:(JsenTabBarItemAttribute *)attribute frame:(CGRect)frame tag:(NSInteger)tag;
 
 + (UIButton *)configPlusButton:(NSString *)image_nor;
 @end

@@ -59,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C3E66911C2026B600CDE5D9 /* JsenTabBarConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenTabBarConfig.h; sourceTree = "<group>"; };
 		4C5672CF1C1FBACE00ABDAAA /* JsenProjectEncapsulation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsenProjectEncapsulation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5672D31C1FBACE00ABDAAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C5672D51C1FBACE00ABDAAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -336,6 +337,7 @@
 				4C5673291C1FBB4900ABDAAA /* JsenTabBarItemAttribute.m */,
 				4C56732A1C1FBB4900ABDAAA /* JsenTabBarItemMgr.h */,
 				4C56732B1C1FBB4900ABDAAA /* JsenTabBarItemMgr.m */,
+				4C3E66911C2026B600CDE5D9 /* JsenTabBarConfig.h */,
 			);
 			path = JsenTabBarController;
 			sourceTree = "<group>";
@@ -794,6 +796,7 @@
 				4C5672FE1C1FBACE00ABDAAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C5672FF1C1FBACE00ABDAAA /* Build configuration list for PBXNativeTarget "JsenProjectEncapsulationTests" */ = {
 			isa = XCConfigurationList;
@@ -802,6 +805,7 @@
 				4C5673011C1FBACE00ABDAAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C5673021C1FBACE00ABDAAA /* Build configuration list for PBXNativeTarget "JsenProjectEncapsulationUITests" */ = {
 			isa = XCConfigurationList;
@@ -810,6 +814,7 @@
 				4C5673041C1FBACE00ABDAAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
