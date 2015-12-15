@@ -30,12 +30,12 @@
     NSMutableDictionary *home_dict = [[NSMutableDictionary alloc] init];
     [home_dict setObject:@""       forKey:@"fromdateline"];
     [home_dict setObject:@""       forKey:@"todateline"];
-    [home_dict setObject:@"0"     forKey:@"page"];
-    [home_dict setObject:@"20"   forKey:@"perpage"];
+    [home_dict setObject:@"0"      forKey:@"page"];
+    [home_dict setObject:@"20"     forKey:@"perpage"];
     NSDictionary *params = @{
-                             @"username":@"wangxuesen",
-                             @"password":@"123456",
-                             @"loginsubmit":@"ture"
+                             @"username"    :@"wangxuesen",
+                             @"password"    :@"123456",
+                             @"loginsubmit" :@"ture"
                              };
     [self.jsenModel docallLoginRequest:params];
     [self.jsenModel docallHomeRequest:home_dict];
@@ -49,17 +49,14 @@
 
 #pragma mark - JsenBaseModelDelegate
 - (void)homeRequestStarted:(id)obj {
-    
     JSENLOGINFO(@"home1 homeRequestStarted");
 }
 
 - (void)homeRequestCanceled:(JsenRequestResponseFailure *)jsenFail {
-    
     JSENLOGINFO(@"home1 homeRequestCanceled");
 }
 
 - (void)homeRequestFailed:(JsenRequestResponseFailure *)jsenFail {
-    
     JSENLOGINFO(@"home1 homeRequestFailed");
 }
 
@@ -69,7 +66,6 @@
 }
 
 - (void)loginRequestStarted:(id)obj {
-    
     JSENLOGINFO(@"login loginRequestStarted");
 }
 
@@ -79,7 +75,6 @@
 }
 
 - (void)loginRequestFailed:(JsenRequestResponseFailure *)jsenFail {
-    
     JSENLOGINFO(@"login loginRequestFailed");
 }
 
@@ -89,15 +84,14 @@
     NSDictionary *var = dat[@"Variables"];
     NSString *forhash = var[@"formhash"];
     
-    
     JSENLOGINFO(@"login loginRequestFinished");
     [USER_DEFAULT setObject:forhash forKey:@"forhash"];
     [USER_DEFAULT synchronize];
     
     
     NSDictionary *paramsup = @{@"avatarsubmit":@"yes",
-                               @"formhash":[USER_DEFAULT objectForKey:@"forhash"],
-                               @"img_avatar":[UIImage imageNamed:@"img_avatar.png"],
+                               @"formhash"    :[USER_DEFAULT objectForKey:@"forhash"],
+                               @"img_avatar"  :[UIImage imageNamed:@"img_avatar.png"],
                                };
     
     [self.jsenModel docallUploadHeaderRequest:paramsup];
