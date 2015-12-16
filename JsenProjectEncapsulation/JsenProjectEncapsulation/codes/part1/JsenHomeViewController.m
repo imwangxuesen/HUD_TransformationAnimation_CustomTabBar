@@ -8,6 +8,7 @@
 
 #import "JsenHomeViewController.h"
 #import "JsenTabBarControllerMgr.h"
+#import "UINavigationBar+Expansion.h"
 @implementation JsenHomeViewController
 
 static int bage = 0;
@@ -50,6 +51,8 @@ static int bage = 0;
     [btn3 addTarget:self action:@selector(btn3clicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn3];
     
+    
+    [self.navigationController.navigationBar drawRect:self.navigationController.navigationBar.frame];
 }
 
 

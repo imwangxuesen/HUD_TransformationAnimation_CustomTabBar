@@ -18,28 +18,49 @@
 
 
 + (JsenTabBarItem *)mgrTabBarItem:(JsenTabBarItemAttribute *)attribute frame:(CGRect)frame tag:(NSInteger)tag {
-    JsenTabBarItem * item = [[JsenTabBarItem alloc] init];
-    CGFloat buttonWidth  = frame.size.width;
-    [item setFrame:frame];
+    JsenTabBarItem * item = [[JsenTabBarItem alloc] initWithFrame:frame];
     item.attribute = attribute;
     item.tag = tag;
     
-    CGFloat imageX = item.imageView.frame.origin.x;
-    CGFloat imageY = item.imageView.frame.origin.y;
-    CGFloat imageW = item.imageView.image.size.width;
-    CGFloat labelW = item.titleLabel.frame.size.width;
+    CGFloat btnW = item.frame.size.width;
+    CGFloat btnH = item.frame.size.height;
     
-    //设置imge的偏移
+    CGRect imageFrame = item.imageView.frame;
+    CGRect titleFrame = item.titleLabel.frame;
+    
+    CGFloat imageX = imageFrame.origin.x;
+    CGFloat imageY = imageFrame.origin.y;
+    CGFloat imageW = imageFrame.size.width;
+    CGFloat imageH = imageFrame.size.height;
+    
+    CGFloat labelX = titleFrame.origin.x;
+    CGFloat labelY = titleFrame.origin.y;
+    CGFloat labelW = titleFrame.size.width;
+    CGFloat labelH = titleFrame.size.height;
+    
+    // 计算按钮图片与文字的总高度(包含间距)
+    CGFloat space = 3.f;
+    CGFloat controlsHeight = imageH+labelH;
+    // 边界总距离
+    CGFloat top = (btnH - controlsHeight - space);
+    
     [item.imageView setContentMode:UIViewContentModeCenter];
     [item.titleLabel setContentMode:UIViewContentModeCenter];
-    CGFloat imageEdgeInsetsTop  = imageY > 5 ? 5-imageY : imageY;
-    CGFloat imageEdgeInsetsLeft = (buttonWidth-imageW-imageX)/2;
-    [item setImageEdgeInsets:UIEdgeInsetsMake(imageEdgeInsetsTop, imageEdgeInsetsLeft, 0.f, 0.f)];
     
-    //设置label的偏移
-    CGFloat labelEdgeInsetsTop  = CGRectGetMaxY(item.imageView.frame);
-    CGFloat labelEdgeInsetsLeft = -item.titleLabel.center.x + (buttonWidth-labelW)/2;
-    [item setTitleEdgeInsets:UIEdgeInsetsMake(labelEdgeInsetsTop, labelEdgeInsetsLeft, 0.f, 0.f)];
+    //设置图片的偏移
+    CGFloat imageEdgeInsetsTop  = imageY > top*2/3 ? top*2/3-imageY : imageY;
+    CGFloat imageEdgeInsetsLeft = (btnW - imageW)/2 - imageX;
+    CGFloat imageEdgeInsetsBottom = -imageEdgeInsetsTop;
+    CGFloat imageEdgeInsetsRight = -(btnW - imageW)/2 + imageX;
+    [item setImageEdgeInsets:UIEdgeInsetsMake(imageEdgeInsetsTop, imageEdgeInsetsLeft, imageEdgeInsetsBottom, imageEdgeInsetsRight)];
+    
+    //设置标题的偏移
+    CGFloat labelEdgeInsetsTop  = (imageY+imageH+imageEdgeInsetsTop+space)-labelY;
+    CGFloat labelEdgeInsetsRight = labelX-(btnW - labelW)/2;
+    CGFloat labelEdgeInsetsLeft = -labelEdgeInsetsRight;
+    CGFloat labelEdgeInsetsBottom = -labelEdgeInsetsTop;
+    
+    [item setTitleEdgeInsets:UIEdgeInsetsMake(labelEdgeInsetsTop, labelEdgeInsetsLeft, labelEdgeInsetsBottom, labelEdgeInsetsRight)];
     
     //设置bagelabel 的属性
     CGFloat bageRadius  = TabBarItem_BageWH/2.0;
@@ -50,9 +71,9 @@
     bageLabel.textColor             = UIColorFromRGB(TabBarItem_BageTextColor);
     bageLabel.layer.cornerRadius    = bageRadius;
     bageLabel.layer.masksToBounds   = YES;
+    bageLabel.hidden                = YES;
     [item addSubview:bageLabel];
     item.bageLabel = bageLabel;
-    item.bageLabel.text = @"99";
     return item;
 }
 

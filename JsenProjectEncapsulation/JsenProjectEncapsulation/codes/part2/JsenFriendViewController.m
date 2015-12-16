@@ -7,11 +7,12 @@
 //
 
 #import "JsenFriendViewController.h"
-
+#import "UIImage+Expansion.h"
 @implementation JsenFriendViewController
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blueColor];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor purpleColor]] forBarMetrics:UIBarMetricsDefault];
 }
 @end
