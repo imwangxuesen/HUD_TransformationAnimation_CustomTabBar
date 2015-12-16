@@ -39,6 +39,11 @@
 		4C5673621C1FBB4900ABDAAA /* img_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5673481C1FBB4900ABDAAA /* img_avatar.png */; };
 		4C5673631C1FBB4900ABDAAA /* JsenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C56734A1C1FBB4900ABDAAA /* JsenModel.m */; };
 		4C5673641C1FBB4900ABDAAA /* JsenModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C56734C1C1FBB4900ABDAAA /* JsenModel2.m */; };
+		4CC11D421C2078CB00F897D0 /* UINavigationBar+Expansion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D411C2078CB00F897D0 /* UINavigationBar+Expansion.m */; };
+		4CC11D461C2081FE00F897D0 /* JsenTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D451C2081FE00F897D0 /* JsenTitleView.m */; };
+		4CC11D491C2083EE00F897D0 /* UIImage+Expansion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D481C2083EE00F897D0 /* UIImage+Expansion.m */; };
+		4CC11D4C1C21094A00F897D0 /* UINavigationItem+Expansion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D4B1C21094A00F897D0 /* UINavigationItem+Expansion.m */; };
+		4CC11D4F1C2118B700F897D0 /* NSString+Expansion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D4E1C2118B700F897D0 /* NSString+Expansion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +136,16 @@
 		4C56734A1C1FBB4900ABDAAA /* JsenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenModel.m; sourceTree = "<group>"; };
 		4C56734B1C1FBB4900ABDAAA /* JsenModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenModel2.h; sourceTree = "<group>"; };
 		4C56734C1C1FBB4900ABDAAA /* JsenModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenModel2.m; sourceTree = "<group>"; };
+		4CC11D401C2078CB00F897D0 /* UINavigationBar+Expansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Expansion.h"; sourceTree = "<group>"; };
+		4CC11D411C2078CB00F897D0 /* UINavigationBar+Expansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Expansion.m"; sourceTree = "<group>"; };
+		4CC11D441C2081FE00F897D0 /* JsenTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTitleView.h; sourceTree = "<group>"; };
+		4CC11D451C2081FE00F897D0 /* JsenTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTitleView.m; sourceTree = "<group>"; };
+		4CC11D471C2083EE00F897D0 /* UIImage+Expansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Expansion.h"; sourceTree = "<group>"; };
+		4CC11D481C2083EE00F897D0 /* UIImage+Expansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Expansion.m"; sourceTree = "<group>"; };
+		4CC11D4A1C21094A00F897D0 /* UINavigationItem+Expansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Expansion.h"; sourceTree = "<group>"; };
+		4CC11D4B1C21094A00F897D0 /* UINavigationItem+Expansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Expansion.m"; sourceTree = "<group>"; };
+		4CC11D4D1C2118B700F897D0 /* NSString+Expansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Expansion.h"; sourceTree = "<group>"; };
+		4CC11D4E1C2118B700F897D0 /* NSString+Expansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Expansion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +325,14 @@
 			children = (
 				4C56731C1C1FBB4900ABDAAA /* NSDictionary+Expansion.h */,
 				4C56731D1C1FBB4900ABDAAA /* NSDictionary+Expansion.m */,
+				4CC11D401C2078CB00F897D0 /* UINavigationBar+Expansion.h */,
+				4CC11D411C2078CB00F897D0 /* UINavigationBar+Expansion.m */,
+				4CC11D471C2083EE00F897D0 /* UIImage+Expansion.h */,
+				4CC11D481C2083EE00F897D0 /* UIImage+Expansion.m */,
+				4CC11D4A1C21094A00F897D0 /* UINavigationItem+Expansion.h */,
+				4CC11D4B1C21094A00F897D0 /* UINavigationItem+Expansion.m */,
+				4CC11D4D1C2118B700F897D0 /* NSString+Expansion.h */,
+				4CC11D4E1C2118B700F897D0 /* NSString+Expansion.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -317,6 +340,7 @@
 		4C56731E1C1FBB4900ABDAAA /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
+				4CC11D431C20815D00F897D0 /* JsenNavigationBar */,
 				4C56731F1C1FBB4900ABDAAA /* JsenTabBarController */,
 			);
 			path = CustomControl;
@@ -410,6 +434,15 @@
 				4C56734C1C1FBB4900ABDAAA /* JsenModel2.m */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		4CC11D431C20815D00F897D0 /* JsenNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4CC11D441C2081FE00F897D0 /* JsenTitleView.h */,
+				4CC11D451C2081FE00F897D0 /* JsenTitleView.m */,
+			);
+			path = JsenNavigationBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,6 +580,7 @@
 				4C5672DA1C1FBACE00ABDAAA /* ViewController.m in Sources */,
 				4C5673611C1FBB4900ABDAAA /* JsenValidationKit.m in Sources */,
 				4C5672D71C1FBACE00ABDAAA /* AppDelegate.m in Sources */,
+				4CC11D4C1C21094A00F897D0 /* UINavigationItem+Expansion.m in Sources */,
 				4C5673511C1FBB4900ABDAAA /* NSDictionary+Expansion.m in Sources */,
 				4C5673631C1FBB4900ABDAAA /* JsenModel.m in Sources */,
 				4C5673531C1FBB4900ABDAAA /* JsenTabBarController.m in Sources */,
@@ -558,7 +592,10 @@
 				4C5673581C1FBB4900ABDAAA /* JsenBaseModel.m in Sources */,
 				4C56735F1C1FBB4900ABDAAA /* JsenRequestResponseSuccess.m in Sources */,
 				4C56734E1C1FBB4900ABDAAA /* JsenFriendViewController.m in Sources */,
+				4CC11D461C2081FE00F897D0 /* JsenTitleView.m in Sources */,
+				4CC11D421C2078CB00F897D0 /* UINavigationBar+Expansion.m in Sources */,
 				4C5673501C1FBB4900ABDAAA /* JsenSettingViewController.m in Sources */,
+				4CC11D491C2083EE00F897D0 /* UIImage+Expansion.m in Sources */,
 				4C5673541C1FBB4900ABDAAA /* JsenTabBarControllerMgr.m in Sources */,
 				4C5673561C1FBB4900ABDAAA /* JsenTabBarItemAttribute.m in Sources */,
 				4C5673521C1FBB4900ABDAAA /* JsenCustomTabBarView.m in Sources */,
@@ -569,6 +606,7 @@
 				4C56735B1C1FBB4900ABDAAA /* JsenRequestResponseSelectors.m in Sources */,
 				4C5673591C1FBB4900ABDAAA /* JsenBaseView.m in Sources */,
 				4C56735A1C1FBB4900ABDAAA /* JsenBaseViewController.m in Sources */,
+				4CC11D4F1C2118B700F897D0 /* NSString+Expansion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
