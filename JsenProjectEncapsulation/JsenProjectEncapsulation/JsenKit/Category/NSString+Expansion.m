@@ -9,7 +9,7 @@
 #import "NSString+Expansion.h"
 
 @implementation NSString (Expansion)
-- (CGSize)boundsWithMaxWidth:(CGFloat)maxWidth font:(UIFont *)font {
+- (CGSize)sizeWithMaxWidth:(CGFloat)maxWidth font:(UIFont *)font {
 
     CGSize boundSize = CGSizeMake(maxWidth, MAXFLOAT);
     NSDictionary *attributes = @{

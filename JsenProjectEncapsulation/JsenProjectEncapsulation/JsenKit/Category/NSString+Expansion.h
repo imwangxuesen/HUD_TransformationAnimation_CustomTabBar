@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (Expansion)
-- (CGSize)boundsWithMaxWidth:(CGFloat)maxWidth font:(UIFont *)font;
+- (CGSize)sizeWithMaxWidth:(CGFloat)maxWidth font:(UIFont *)font;
 @end
