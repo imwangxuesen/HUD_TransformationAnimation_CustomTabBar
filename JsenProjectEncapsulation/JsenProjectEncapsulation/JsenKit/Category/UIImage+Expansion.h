@@ -10,4 +10,8 @@
 
 @interface UIImage (Expansion)
 + (UIImage *)imageWithColor:(UIColor *)color;
+//裁剪
+-(UIImage*)getSubImage:(CGRect)rect;
+//参见中心最大的正方形
+- (UIImage *)getCenterSquareImage:(CGRect)rect;
 @end

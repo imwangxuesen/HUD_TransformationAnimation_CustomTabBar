@@ -44,6 +44,8 @@
 		4CC11D491C2083EE00F897D0 /* UIImage+Expansion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D481C2083EE00F897D0 /* UIImage+Expansion.m */; };
 		4CC11D4C1C21094A00F897D0 /* UINavigationItem+Expansion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D4B1C21094A00F897D0 /* UINavigationItem+Expansion.m */; };
 		4CC11D4F1C2118B700F897D0 /* NSString+Expansion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D4E1C2118B700F897D0 /* NSString+Expansion.m */; };
+		4CC11D521C21313600F897D0 /* JsenFrameKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D511C21313600F897D0 /* JsenFrameKit.m */; };
+		4CC11D551C214C8600F897D0 /* JsenTitleViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D541C214C8600F897D0 /* JsenTitleViewAttribute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +148,10 @@
 		4CC11D4B1C21094A00F897D0 /* UINavigationItem+Expansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Expansion.m"; sourceTree = "<group>"; };
 		4CC11D4D1C2118B700F897D0 /* NSString+Expansion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Expansion.h"; sourceTree = "<group>"; };
 		4CC11D4E1C2118B700F897D0 /* NSString+Expansion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Expansion.m"; sourceTree = "<group>"; };
+		4CC11D501C21313600F897D0 /* JsenFrameKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenFrameKit.h; sourceTree = "<group>"; };
+		4CC11D511C21313600F897D0 /* JsenFrameKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenFrameKit.m; sourceTree = "<group>"; };
+		4CC11D531C214C8600F897D0 /* JsenTitleViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTitleViewAttribute.h; sourceTree = "<group>"; };
+		4CC11D541C214C8600F897D0 /* JsenTitleViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTitleViewAttribute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,6 +418,8 @@
 			children = (
 				4C5673441C1FBB4900ABDAAA /* JsenValidationKit.h */,
 				4C5673451C1FBB4900ABDAAA /* JsenValidationKit.m */,
+				4CC11D501C21313600F897D0 /* JsenFrameKit.h */,
+				4CC11D511C21313600F897D0 /* JsenFrameKit.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -441,6 +449,8 @@
 			children = (
 				4CC11D441C2081FE00F897D0 /* JsenTitleView.h */,
 				4CC11D451C2081FE00F897D0 /* JsenTitleView.m */,
+				4CC11D531C214C8600F897D0 /* JsenTitleViewAttribute.h */,
+				4CC11D541C214C8600F897D0 /* JsenTitleViewAttribute.m */,
 			);
 			path = JsenNavigationBar;
 			sourceTree = "<group>";
@@ -588,6 +598,7 @@
 				4C56735D1C1FBB4900ABDAAA /* JsenRequest.m in Sources */,
 				4C56734D1C1FBB4900ABDAAA /* JsenHomeViewController.m in Sources */,
 				4C5673551C1FBB4900ABDAAA /* JsenTabBarItem.m in Sources */,
+				4CC11D521C21313600F897D0 /* JsenFrameKit.m in Sources */,
 				4C5673571C1FBB4900ABDAAA /* JsenTabBarItemMgr.m in Sources */,
 				4C5673581C1FBB4900ABDAAA /* JsenBaseModel.m in Sources */,
 				4C56735F1C1FBB4900ABDAAA /* JsenRequestResponseSuccess.m in Sources */,
@@ -604,6 +615,7 @@
 				4C56735E1C1FBB4900ABDAAA /* JsenRequestResponseFailure.m in Sources */,
 				4C56735C1C1FBB4900ABDAAA /* JsenNetworkMonitor.m in Sources */,
 				4C56735B1C1FBB4900ABDAAA /* JsenRequestResponseSelectors.m in Sources */,
+				4CC11D551C214C8600F897D0 /* JsenTitleViewAttribute.m in Sources */,
 				4C5673591C1FBB4900ABDAAA /* JsenBaseView.m in Sources */,
 				4C56735A1C1FBB4900ABDAAA /* JsenBaseViewController.m in Sources */,
 				4CC11D4F1C2118B700F897D0 /* NSString+Expansion.m in Sources */,

@@ -51,13 +51,18 @@ static int bage = 0;
     [btn3 addTarget:self action:@selector(btn3clicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn3];
     
+    [self.navigationController.navigationBar jsen_setBackgroundColor:[UIColor blueColor]];
     
-    [self.navigationController.navigationBar drawRect:self.navigationController.navigationBar.frame];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar jsen_reset];
 }
 
 

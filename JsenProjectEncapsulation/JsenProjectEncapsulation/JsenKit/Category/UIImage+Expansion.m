@@ -23,4 +23,32 @@
     
     return image;
 }
+
+//截取部分图像
+-(UIImage*)getSubImage:(CGRect)rect
+{
+    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
+    CGRect smallBounds = CGRectMake(0, 0, CGImageGetWidth(subImageRef), CGImageGetHeight(subImageRef));
+    
+    UIGraphicsBeginImageContext(smallBounds.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawImage(context, smallBounds, subImageRef);
+    UIImage* smallImage = [UIImage imageWithCGImage:subImageRef];
+    UIGraphicsEndImageContext();
+    
+    return smallImage;
+}
+
+- (UIImage *)getCenterSquareImage:(CGRect)rect {
+    
+    CGFloat squareWH = rect.size.width >= rect.size.height ? rect.size.height : rect.size.width;
+    CGPoint squareCenter = CGPointMake(rect.size.width / 2.0, rect.size.height / 2.0);
+    CGFloat squareX = squareCenter.x - squareWH/2.0;
+    CGFloat squareY = squareCenter.y - squareWH/2.0;
+    CGRect squareRect = CGRectMake(squareX, squareY, squareWH, squareWH);
+    return [self getSubImage:squareRect];
+    
+};
+
+
 @end

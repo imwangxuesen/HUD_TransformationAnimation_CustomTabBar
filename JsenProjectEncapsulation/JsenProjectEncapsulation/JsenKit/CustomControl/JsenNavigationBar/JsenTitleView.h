@@ -7,9 +7,15 @@
 //
 
 #import "JsenBaseView.h"
-
+#import "JsenTitleViewAttribute.h"
 @interface JsenTitleView : JsenBaseView
+@property (nonatomic , strong)JsenTitleViewAttribute * attribute;
 
-+ (JsenTitleView *)titleView:(NSString *)imageName title:(NSString *)title;
++ (JsenTitleView *)imageName:(NSString *)imageName
+                    imageUrl:(NSString *)imageUrlStr
+                       title:(NSString *)title
+                        type:(JsenTitleViewType)type;
 
 @end
+
+
