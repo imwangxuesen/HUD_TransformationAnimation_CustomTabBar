@@ -13,7 +13,7 @@
 #define NAVBAR_CHANGE_POINT 50
 
 @interface JsenFoundViewController()<UITableViewDataSource,UITableViewDelegate>
-
+@property (nonatomic , strong) UITableView * tableView;
 @end
 
 @implementation JsenFoundViewController
@@ -30,7 +30,6 @@
                        ];
     [self.navigationItem setRightBarButtonItems:rights animated:YES];
     
-    
     //tableview
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, -64, self.view.bounds.size.width, self.view.bounds.size.height+ 64) style:UITableViewStyleGrouped];
     table.dataSource = self;
@@ -39,12 +38,16 @@
     headerView.image = [UIImage imageNamed:@"img_avatar"];
     table.tableHeaderView = headerView;
     [self.view addSubview:table];
+    self.tableView = table;
     [table reloadData];
     
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.tableView.delegate = self;
+    [self scrollViewDidScroll:self.tableView];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 
