@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1D8AA41C2289EB00606E19 /* JsenProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D8AA31C2289EB00606E19 /* JsenProgressHUD.m */; };
+		4C411B361C22C6FD0017870C /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C411B341C22C6FD0017870C /* error@2x.png */; };
+		4C411B371C22C6FD0017870C /* success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C411B351C22C6FD0017870C /* success@2x.png */; };
 		4C5672D41C1FBACE00ABDAAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5672D31C1FBACE00ABDAAA /* main.m */; };
 		4C5672D71C1FBACE00ABDAAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5672D61C1FBACE00ABDAAA /* AppDelegate.m */; };
 		4C5672DA1C1FBACE00ABDAAA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5672D91C1FBACE00ABDAAA /* ViewController.m */; };
@@ -66,7 +69,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C1D8AA21C2289EB00606E19 /* JsenProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenProgressHUD.h; sourceTree = "<group>"; };
+		4C1D8AA31C2289EB00606E19 /* JsenProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenProgressHUD.m; sourceTree = "<group>"; };
 		4C3E66911C2026B600CDE5D9 /* JsenTabBarConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsenTabBarConfig.h; sourceTree = "<group>"; };
+		4C411B341C22C6FD0017870C /* error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "error@2x.png"; sourceTree = "<group>"; };
+		4C411B351C22C6FD0017870C /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@2x.png"; sourceTree = "<group>"; };
 		4C5672CF1C1FBACE00ABDAAA /* JsenProjectEncapsulation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsenProjectEncapsulation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5672D31C1FBACE00ABDAAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C5672D51C1FBACE00ABDAAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -179,6 +186,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C1D8A9F1C2289C100606E19 /* JsenProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				4C411B341C22C6FD0017870C /* error@2x.png */,
+				4C411B351C22C6FD0017870C /* success@2x.png */,
+				4C1D8AA21C2289EB00606E19 /* JsenProgressHUD.h */,
+				4C1D8AA31C2289EB00606E19 /* JsenProgressHUD.m */,
+			);
+			path = JsenProgressHUD;
+			sourceTree = "<group>";
+		};
 		4C5672C61C1FBACE00ABDAAA = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +364,7 @@
 		4C56731E1C1FBB4900ABDAAA /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
+				4C1D8A9F1C2289C100606E19 /* JsenProgressHUD */,
 				4CC11D431C20815D00F897D0 /* JsenNavigationBar */,
 				4C56731F1C1FBB4900ABDAAA /* JsenTabBarController */,
 			);
@@ -558,9 +577,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C411B371C22C6FD0017870C /* success@2x.png in Resources */,
 				4C5673621C1FBB4900ABDAAA /* img_avatar.png in Resources */,
 				4C5672E21C1FBACE00ABDAAA /* LaunchScreen.storyboard in Resources */,
 				4C5672DF1C1FBACE00ABDAAA /* Assets.xcassets in Resources */,
+				4C411B361C22C6FD0017870C /* error@2x.png in Resources */,
 				4C5672DD1C1FBACE00ABDAAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +617,7 @@
 				4C5673531C1FBB4900ABDAAA /* JsenTabBarController.m in Sources */,
 				4C5672D41C1FBACE00ABDAAA /* main.m in Sources */,
 				4C56735D1C1FBB4900ABDAAA /* JsenRequest.m in Sources */,
+				4C1D8AA41C2289EB00606E19 /* JsenProgressHUD.m in Sources */,
 				4C56734D1C1FBB4900ABDAAA /* JsenHomeViewController.m in Sources */,
 				4C5673551C1FBB4900ABDAAA /* JsenTabBarItem.m in Sources */,
 				4CC11D521C21313600F897D0 /* JsenFrameKit.m in Sources */,
@@ -764,6 +786,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jsen.JsenProjectEncapsulation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
@@ -776,6 +799,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jsen.JsenProjectEncapsulation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 			};
 			name = Release;
 		};
