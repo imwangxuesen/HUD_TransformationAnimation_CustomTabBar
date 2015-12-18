@@ -66,9 +66,9 @@
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params{
     NSAssert(![serviceURL isEqualToString:@""] && serviceURL,  @"ServiceURL is empty!!");
     JsenRequest * request = [[JsenRequest alloc] init];
-    request.requestURL =  [request fixRequestUrlWithServiceURL:serviceURL params:params];
-    request.requestName = name;
-    request.requestMethod = method;
+    request.requestURL          = [request fixRequestUrlWithServiceURL:serviceURL params:params];
+    request.requestName         = name;
+    request.requestMethod       = method;
     request.responseParseFormat = format;
     request.params = params;
     return  request;
@@ -77,24 +77,24 @@
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params withRequestBlock:(JsenRequestBlockHandler)customerBlock{
     NSAssert(![serviceURL isEqualToString:@""] && serviceURL,  @"ServiceURL is empty!!");
     JsenRequest * request = [[JsenRequest alloc] init];
-    request.requestURL =  [request fixRequestUrlWithServiceURL:serviceURL params:params];
-    request.requestName = name;
-    request.requestMethod = method;
+    request.requestURL          = [request fixRequestUrlWithServiceURL:serviceURL params:params];
+    request.requestName         = name;
+    request.requestMethod       = method;
     request.responseParseFormat = format;
-    request.params = params;
-    request.requestHandler = customerBlock;
+    request.params              = params;
+    request.requestHandler      = customerBlock;
     return  request;
 }
 
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params withDelegate:(id<JsenRequestDelegate>) delegate{
     NSAssert(![serviceURL isEqualToString:@""] && serviceURL,  @"ServiceURL is empty!!");
     JsenRequest * request = [[JsenRequest alloc] init];
-    request.requestURL =  [request fixRequestUrlWithServiceURL:serviceURL params:params];
-    request.requestName = name;
-    request.requestMethod = method;
+    request.requestURL          = [request fixRequestUrlWithServiceURL:serviceURL params:params];
+    request.requestName         = name;
+    request.requestMethod       = method;
     request.responseParseFormat = format;
-    request.params = params;
-    request.delegate = delegate;
+    request.params              = params;
+    request.delegate            = delegate;
     return  request;
     
 }
@@ -280,7 +280,7 @@
 //成功接收到返回值
 - (void)receivedData:(NSData *)data {
     id object = [self getParsedDic:data];
-    NSDictionary *userInfo = @{
+    NSDictionary *userInfo    = @{
                                @"data":object
                                };
     NSDictionary *responseDic = @{
@@ -295,7 +295,7 @@
 //超时
 - (void)timedOut:(NSError *)error {
     //TODO
-    NSDictionary *userInfo = @{
+    NSDictionary *userInfo    = @{
                                @"data" : error.userInfo
                                };
     NSDictionary *responseDic = @{
@@ -310,7 +310,7 @@
 //请求失败
 - (void)downloadError:(NSError *)error {
     //TODO
-    NSDictionary *userInfo = @{
+    NSDictionary *userInfo    = @{
                                @"data" : error.userInfo
                                };
     NSDictionary *responseDic = @{

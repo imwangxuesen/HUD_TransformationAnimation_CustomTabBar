@@ -81,7 +81,7 @@
     if (self.label.text != nil)
     {
         NSDictionary *attributes = @{NSFontAttributeName:self.label.font};
-        NSInteger options = NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin;
+        NSInteger options        = NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin;
         labelRect = [self.label.text boundingRectWithSize:CGSizeMake(200, 300) options:options attributes:attributes context:NULL];
         
         labelRect.origin.x = 12;
@@ -93,18 +93,18 @@
         if (hudWidth < 100)
         {
             hudWidth = 100;
-            labelRect.origin.x = 0;
+            labelRect.origin.x   = 0;
             labelRect.size.width = 100;
         }
     }
     
-    self.hud.bounds = CGRectMake(0, 0, hudWidth, hudHeight);
-    
-    CGFloat imagex = hudWidth/2;
-    CGFloat imagey = (self.label.text == nil) ? hudHeight/2 : 36;
+    self.hud.bounds   = CGRectMake(0, 0, hudWidth, hudHeight);
+
+    CGFloat imagex    = hudWidth/2;
+    CGFloat imagey    = (self.label.text == nil) ? hudHeight/2 : 36;
     self.image.center = self.spinner.center = CGPointMake(imagex, imagey);
-    
-    self.label.frame = labelRect;
+
+    self.label.frame  = labelRect;
 }
 
 //创建hud
@@ -194,7 +194,7 @@
     }
     else heightKeyboard = [self keyboardHeight];
     
-    CGRect screen = [UIScreen mainScreen].bounds;
+    CGRect  screen = [UIScreen mainScreen].bounds;
     CGPoint center = CGPointMake(screen.size.width/2, (screen.size.height-heightKeyboard)/2);
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
@@ -280,7 +280,7 @@
     {
         self.alpha = 1;
         
-        self.hud.alpha = 0;
+        self.hud.alpha     = 0;
         self.hud.transform = CGAffineTransformScale(self.hud.transform, 1.4, 1.4);
         
         NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut;

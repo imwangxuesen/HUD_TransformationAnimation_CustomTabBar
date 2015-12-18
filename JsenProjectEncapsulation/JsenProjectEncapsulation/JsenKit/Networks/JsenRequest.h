@@ -62,16 +62,17 @@ typedef enum{
 
 typedef void(^JsenRequestBlockHandler)(JsenRequest * request, JRequestingStatus requestingStatus, JsenRequestResponseSuccess *responseSuccess, JsenRequestResponseFailure *responseFailed);
 
-@property (nonatomic , weak) id<JsenRequestDelegate>delegate;
+@property (nonatomic , weak)   id<JsenRequestDelegate> delegate;
 @property (nonatomic , strong) JsenRequestBlockHandler requestHandler;
-@property (nonatomic , copy) NSString * requestName;
-@property (nonatomic , copy) NSString * requestURL;
-@property (nonatomic , assign) JResponseParseFormat responseParseFormat;
-@property (nonatomic , assign) JRequestMethod requestMethod;
-@property (nonatomic , strong) NSDictionary *params;
+@property (nonatomic , copy  ) NSString                * requestName;
+@property (nonatomic , copy  ) NSString                * requestURL;
+@property (nonatomic , assign) JResponseParseFormat    responseParseFormat;
+@property (nonatomic , assign) JRequestMethod          requestMethod;
+@property (nonatomic , strong) NSDictionary            *params;
 
 - (void)start;
 - (void)cancel;
+
 
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params;
 

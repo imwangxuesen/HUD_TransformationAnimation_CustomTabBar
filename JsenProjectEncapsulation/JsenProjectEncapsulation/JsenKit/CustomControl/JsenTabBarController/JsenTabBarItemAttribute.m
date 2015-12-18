@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        self.title = title;
+        self.title           = title;
         self.imageNameForNor = imageNameForNor;
         self.imageNameForSel = imageNameForSel;
     }

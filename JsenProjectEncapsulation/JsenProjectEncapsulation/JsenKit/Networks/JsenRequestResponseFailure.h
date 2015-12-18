@@ -11,10 +11,10 @@
 
 @interface JsenRequestResponseFailure : NSObject<JsenRequestProtocol>
 
-@property (nonatomic , copy) NSString *serviceName;
-@property (nonatomic , copy) NSString *status;
-@property (nonatomic , strong) id userInfo;
-@property (nonatomic , copy) NSString *errorInfo;
+@property (nonatomic , copy  ) NSString *serviceName;
+@property (nonatomic , copy  ) NSString *status;
+@property (nonatomic , strong) id       userInfo;
+@property (nonatomic , copy  ) NSString *errorInfo;
 
 - (id)initWithResponse:(NSDictionary *)responseDic;
 

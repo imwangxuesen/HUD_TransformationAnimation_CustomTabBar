@@ -20,18 +20,19 @@
 @end
 
 @interface JsenCustomTabBarView : JsenBaseView
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 @property (nonatomic , strong) JsenTabBarItem * firstItem;
 @property (nonatomic , strong) JsenTabBarItem * secondItem;
 @property (nonatomic , strong) JsenTabBarItem * thirdItem;
 @property (nonatomic , strong) JsenTabBarItem * fouthItem;
-@property (nonatomic , strong) UIButton * plusItem;
-
-@property (nonatomic , strong) NSArray * attributes;
-@property (nonatomic , assign) BOOL showPlusButton;
-
+@property (nonatomic , strong) UIButton       * plusItem;
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+@property (nonatomic , strong) NSArray        * attributes;
+@property (nonatomic , assign) BOOL           showPlusButton;
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 @property (nonatomic , weak) id<JsenCustomTabBarViewDelegate>delegate;
 
+//------------------------------------------------------------------------------------------------------------------------------------------------
 
 - (void)configFirstBage:(NSString *)bageNum;
 - (void)configSecondBage:(NSString *)bageNum;

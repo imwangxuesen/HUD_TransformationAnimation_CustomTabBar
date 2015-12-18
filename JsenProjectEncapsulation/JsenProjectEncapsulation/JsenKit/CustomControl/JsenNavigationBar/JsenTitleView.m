@@ -13,19 +13,19 @@
 //最大的titleview rect
 #define     JsenTitleView_MAX_RECT  (CGRectMake(0, 0,160,44))
 //最大允许宽度
-static const CGFloat    JsenTitleView_MAX_WIDTH      = 160;
+static const CGFloat    JsenTitleView_MAX_WIDTH               = 160;
 //image 和 title 间距
-static const CGFloat    JsenTitleView_ImageAndTitleSpace = 5;
+static const CGFloat    JsenTitleView_ImageAndTitleSpace      = 5;
 //只有图片时的图片最大高度
-static const CGFloat    JsenTitleView_ImageWH_MAX    = 44;
+static const CGFloat    JsenTitleView_ImageWH_MAX             = 44;
 //当图片和标题都有时的图片固定宽高
-static const CGFloat    JsenTitleView_ImageWithTitleWH_STATIC  = 30;
+static const CGFloat    JsenTitleView_ImageWithTitleWH_STATIC = 30;
 //当图片和标题都有时的 标题字号
-static const NSInteger  JsenTitleView_WithImage_TitleFontSize  = 10;
+static const NSInteger  JsenTitleView_WithImage_TitleFontSize = 10;
 //只有标题时的 标题字号
-static const NSInteger  JsenTitleView_TitleFontSize  = 14;
+static const NSInteger  JsenTitleView_TitleFontSize           = 14;
 //标题字体颜色
-static const int        JsenTitleView_TitleColor     = 0x000000;
+static const int        JsenTitleView_TitleColor              = 0x000000;
 
 //标题字体的名字
 #define JsenTitleView_TitleFontName @"AppleGothic"
@@ -109,11 +109,11 @@ static const int        JsenTitleView_TitleColor     = 0x000000;
 
 - (void)configImageAndTitle {
     // 裁剪一个正方形的image
-    CGRect imageRectWant = CGRectMake(0, 0, JsenTitleView_ImageWithTitleWH_STATIC, JsenTitleView_ImageWithTitleWH_STATIC);
-    UIImage *image = [self getImageWith:self.attribute];
-    CGRect imageRectTrue = CGRectMake(0, 0, image.size.width, image.size.height);
+    CGRect imageRectWant       = CGRectMake(0, 0, JsenTitleView_ImageWithTitleWH_STATIC, JsenTitleView_ImageWithTitleWH_STATIC);
+    UIImage *image             = [self getImageWith:self.attribute];
+    CGRect imageRectTrue       = CGRectMake(0, 0, image.size.width, image.size.height);
     CGRect imageSguareFromTrue = [JsenFrameKit getMAXEqualScaleRectWithFatherRect:imageRectTrue sonRect:imageRectWant];
-    UIImage *subImage = [image getSubImage:imageSguareFromTrue];
+    UIImage *subImage          = [image getSubImage:imageSguareFromTrue];
     
     //拼接imge title
     

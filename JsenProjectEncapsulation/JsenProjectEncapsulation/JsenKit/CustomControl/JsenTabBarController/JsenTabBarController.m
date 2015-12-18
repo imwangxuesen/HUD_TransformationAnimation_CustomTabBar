@@ -24,8 +24,8 @@ static const CGFloat TabBar_Height = 49.0;
 
 - (void)configAttributes:(NSArray *)attributes controllers:(NSArray *)controllers showPlusItem:(BOOL)showPlusItem {
     
-    self.attributes = attributes;
-    self.controllers = controllers;
+    self.attributes   = attributes;
+    self.controllers  = controllers;
     self.showPlusItem = showPlusItem;
     [self createCustomTabBar];
     [self createControllers];
@@ -54,8 +54,8 @@ static const CGFloat TabBar_Height = 49.0;
     
     JsenCustomTabBarView * tabBarView = [[JsenCustomTabBarView alloc] initWithFrame:CGRectMake(0, IH_DEVICE_HEIGHT - TabBar_Height, IH_DEVICE_WIDTH, TabBar_Height)];
     tabBarView.showPlusButton = self.showPlusItem;
-    tabBarView.attributes = self.attributes;
-    tabBarView.delegate = self;
+    tabBarView.attributes     = self.attributes;
+    tabBarView.delegate       = self;
     [self.view addSubview:tabBarView];
     self.tabBarView = tabBarView;
     

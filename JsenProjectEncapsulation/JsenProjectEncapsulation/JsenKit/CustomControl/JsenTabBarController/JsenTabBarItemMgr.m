@@ -6,9 +6,6 @@
 //  Copyright © 2015年 hearst. All rights reserved.
 //
 
-
-
-
 #import <Foundation/Foundation.h>
 #import "JsenTabBarItemMgr.h"
 #import "JsenTabBarItemAttribute.h"
@@ -20,7 +17,7 @@
 + (JsenTabBarItem *)mgrTabBarItem:(JsenTabBarItemAttribute *)attribute frame:(CGRect)frame tag:(NSInteger)tag {
     JsenTabBarItem * item = [[JsenTabBarItem alloc] initWithFrame:frame];
     item.attribute = attribute;
-    item.tag = tag;
+    item.tag       = tag;
     
     CGFloat btnW = item.frame.size.width;
     CGFloat btnH = item.frame.size.height;
@@ -48,16 +45,16 @@
     [item.titleLabel setContentMode:UIViewContentModeCenter];
     
     //设置图片的偏移
-    CGFloat imageEdgeInsetsTop  = imageY > top*2/3 ? top*2/3-imageY : imageY;
-    CGFloat imageEdgeInsetsLeft = (btnW - imageW)/2 - imageX;
+    CGFloat imageEdgeInsetsTop    = imageY > top*2/3 ? top*2/3-imageY : imageY;
+    CGFloat imageEdgeInsetsLeft   = (btnW - imageW)/2 - imageX;
     CGFloat imageEdgeInsetsBottom = -imageEdgeInsetsTop;
-    CGFloat imageEdgeInsetsRight = -(btnW - imageW)/2 + imageX;
+    CGFloat imageEdgeInsetsRight  = -(btnW - imageW)/2 + imageX;
     [item setImageEdgeInsets:UIEdgeInsetsMake(imageEdgeInsetsTop, imageEdgeInsetsLeft, imageEdgeInsetsBottom, imageEdgeInsetsRight)];
     
     //设置标题的偏移
-    CGFloat labelEdgeInsetsTop  = (imageY+imageH+imageEdgeInsetsTop+space)-labelY;
-    CGFloat labelEdgeInsetsRight = labelX-(btnW - labelW)/2;
-    CGFloat labelEdgeInsetsLeft = -labelEdgeInsetsRight;
+    CGFloat labelEdgeInsetsTop    = (imageY+imageH+imageEdgeInsetsTop+space)-labelY;
+    CGFloat labelEdgeInsetsRight  = labelX-(btnW - labelW)/2;
+    CGFloat labelEdgeInsetsLeft   = -labelEdgeInsetsRight;
     CGFloat labelEdgeInsetsBottom = -labelEdgeInsetsTop;
     
     [item setTitleEdgeInsets:UIEdgeInsetsMake(labelEdgeInsetsTop, labelEdgeInsetsLeft, labelEdgeInsetsBottom, labelEdgeInsetsRight)];

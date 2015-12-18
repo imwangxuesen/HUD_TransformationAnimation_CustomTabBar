@@ -20,7 +20,7 @@ static const int TabBar_BackgroundColor = 0xffffff;
 
 #pragma mark - Set Get
 - (void)setAttributes:(NSArray *)attributes {
-    
+    //-------------------------------------------------------------------------------------------------------------------------------------------------
     _attributes = attributes;
     [self setBackgroundColor:UIColorFromRGB(TabBar_BackgroundColor)];
     if (self.showPlusButton) {

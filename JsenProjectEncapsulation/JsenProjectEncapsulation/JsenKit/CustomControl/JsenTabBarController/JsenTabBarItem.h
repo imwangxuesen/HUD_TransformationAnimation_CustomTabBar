@@ -11,7 +11,7 @@
 @interface JsenTabBarItem : UIButton
 
 @property (nonatomic , strong) JsenTabBarItemAttribute * attribute;
-@property (nonatomic , strong) UILabel * bageLabel;
+@property (nonatomic , strong) UILabel                 * bageLabel;
 
 // 配置bagelabel 的数字
 - (void)configBageNum:(NSString *)bageNum;

@@ -15,9 +15,9 @@
     self = [super init];
     if (self) {
         self.serviceName = responseDic[@"serviceName"];
-        self.status = responseDic[@"status"];
-        self.userInfo = responseDic[@"userInfoDic"];
-        self.errorInfo = responseDic[@"errorInfo"];
+        self.status      = responseDic[@"status"];
+        self.userInfo    = responseDic[@"userInfoDic"];
+        self.errorInfo   = responseDic[@"errorInfo"];
     }
     return self;
 }

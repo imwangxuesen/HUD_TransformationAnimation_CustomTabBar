@@ -26,8 +26,7 @@
 }
 
 + (CGRect)getMAXEqualScaleRectWithFatherRect:(CGRect)fatherRect sonRect:(CGRect)sonRect {
-//    CGFloat fatherX = fatherRect.origin.x;
-//    CGFloat fatherY = fatherRect.origin.y;
+
     CGFloat fatherW = fatherRect.size.width;
     CGFloat fatherH = fatherRect.size.height;
     
@@ -57,7 +56,6 @@
     sonY = fatherCenterY - sonH/2.0;
     
     return CGRectMake(sonX, sonY, sonW, sonH);
-    
     
 }
 @end
