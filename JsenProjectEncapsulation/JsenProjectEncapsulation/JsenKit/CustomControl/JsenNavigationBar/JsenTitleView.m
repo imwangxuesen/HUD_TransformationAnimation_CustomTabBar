@@ -10,6 +10,7 @@
 #import "UIImage+Expansion.h"
 #import "JsenFrameKit.h"
 #import "NSString+Expansion.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 //最大的titleview rect
 #define     JsenTitleView_MAX_RECT  (CGRectMake(0, 0,160,44))
 //最大允许宽度
@@ -86,7 +87,8 @@ static const int        JsenTitleView_TitleColor              = 0x000000;
 }
 
 - (void)configOnlyImage {
-    UIImage *image = [self getImageWith:self.attribute];
+    NSAssert(self.attribute.imageUrlStr == nil, @"只有图片的模式下不支持远程图片");
+    UIImage *image = [UIImage imageNamed:self.attribute.imageName];
     CGRect imageRect = CGRectMake(0, 0, image.size.width, image.size.height);
     imageRect = [JsenFrameKit getMAXEqualScaleRectWithFatherRect:self.bounds sonRect:imageRect];
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:imageRect];
@@ -108,20 +110,12 @@ static const int        JsenTitleView_TitleColor              = 0x000000;
 }
 
 - (void)configImageAndTitle {
-    // 裁剪一个正方形的image
-    CGRect imageRectWant       = CGRectMake(0, 0, JsenTitleView_ImageWithTitleWH_STATIC, JsenTitleView_ImageWithTitleWH_STATIC);
-    UIImage *image             = [self getImageWith:self.attribute];
-    CGRect imageRectTrue       = CGRectMake(0, 0, image.size.width, image.size.height);
-    CGRect imageSguareFromTrue = [JsenFrameKit getMAXEqualScaleRectWithFatherRect:imageRectTrue sonRect:imageRectWant];
-    UIImage *subImage          = [image getSubImage:imageSguareFromTrue];
-    
     //拼接imge title
-    
     CGSize titleSize = [self.attribute.title sizeWithMaxWidth:JsenTitleView_MAX_WIDTH - JsenTitleView_ImageWH_MAX - JsenTitleView_ImageAndTitleSpace font:JsenTitleView_TitleFont];
     CGFloat titleW = titleSize.width;
     CGFloat titleH = JsenTitleView_ImageWH_MAX;
     CGFloat titleY = 0;
-
+    
     CGFloat imageW = JsenTitleView_ImageWithTitleWH_STATIC;
     CGFloat imageH = imageW;
     CGFloat imageY = (self.frame.size.height - imageH)/2.0;
@@ -134,7 +128,13 @@ static const int        JsenTitleView_TitleColor              = 0x000000;
     CGRect titleRect = CGRectMake(titleX, titleY, titleW, titleH);
     
     UIImageView * imageView       = [[UIImageView alloc] initWithFrame:imageRect];
-    imageView.image               = [self getImageWith:self.attribute];
+    
+    if (self.attribute.imageName) {
+        imageView.image = [UIImage imageNamed:self.attribute.imageName];
+    } else {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.attribute.imageUrlStr] placeholderImage:[UIImage imageNamed:@"jsen_titleview_placeholder"]];
+        
+    }
     imageView.layer.masksToBounds = YES;
     imageView.layer.cornerRadius  = imageRect.size.width/2.0;
     [self addSubview:imageView];
@@ -151,16 +151,7 @@ static const int        JsenTitleView_TitleColor              = 0x000000;
     
 }
 
-//获取图片实例
-- (UIImage *)getImageWith:(JsenTitleViewAttribute *)attribute {
-    UIImage *image = nil;
-    if (self.attribute.imageUrlStr) {
-        image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.attribute.imageUrlStr]]];
-    } else if (self.attribute.imageName) {
-        image = [UIImage imageNamed:self.attribute.imageName];
-    }
-    return image;
-}
+
 @end
 
 
