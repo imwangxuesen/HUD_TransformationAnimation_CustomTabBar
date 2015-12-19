@@ -19,8 +19,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    JsenTitleView * view = [JsenTitleView imageName:nil imageUrl:@"http://files.b2b.cn/company/CompanyImages/2012_12/30/30121941868.jpg" title:@"hahddddddddfsdfasdfasdfasfasfda" type:JsenTitleViewTypeTitleAndImage];
+    JsenTitleView * view =  [JsenTitleView imageName:nil imageUrl:@"https://github.com/imwangxuesen/JsenProjectEncapsulation/blob/master/resource/jsen_titleview_remote.JPG?raw=true" title:@"Jsen_Wang" type:JsenTitleViewTypeTitleAndImage];
     self.navigationItem.titleView = view;
     
     //items
