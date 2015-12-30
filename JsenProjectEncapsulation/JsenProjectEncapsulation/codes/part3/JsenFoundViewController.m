@@ -9,10 +9,11 @@
 #import "JsenFoundViewController.h"
 #import "UINavigationBar+Expansion.h"
 #import "JsenSettingViewController.h"
+#import "PingTransition.h"
 
 #define NAVBAR_CHANGE_POINT 50
 
-@interface JsenFoundViewController()<UITableViewDataSource,UITableViewDelegate>
+@interface JsenFoundViewController()<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate>
 @property (nonatomic , strong) UITableView * tableView;
 @end
 
@@ -22,6 +23,7 @@
     [super viewDidLoad];
     self.title = nil;
     self.view.backgroundColor = [UIColor blackColor];
+    
     
     //items
     UIBarButtonItem * right = [[UIBarButtonItem alloc] initWithTitle:@"next" style:UIBarButtonItemStyleDone target:self action:@selector(rightItemClicked:)];
@@ -33,7 +35,7 @@
     //tableview
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, -64, self.view.bounds.size.width, self.view.bounds.size.height+ 64) style:UITableViewStyleGrouped];
     table.dataSource = self;
-    table.delegate = self;
+    table.delegate   = self;
     UIImageView *headerView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, IH_DEVICE_WIDTH, 264)];
     headerView.image = [UIImage imageNamed:@"img_avatar"];
     table.tableHeaderView = headerView;
@@ -47,6 +49,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tableView.delegate = self;
+    self.navigationController.delegate = self;
     [self scrollViewDidScroll:self.tableView];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
@@ -101,6 +104,22 @@
         [self.navigationController.navigationBar jsen_setBackgroundColor:[color colorWithAlphaComponent:0]];
     }
 }
+
+#pragma mark - transition animation
+#pragma mark - UINavigationControllerDelegate
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                fromViewController:(UIViewController *)fromVC
+                                                  toViewController:(UIViewController *)toVC{
+    if (operation == UINavigationControllerOperationPush) {
+        
+        PingTransition *ping = [PingTransition new];
+        return ping;
+    }else{
+        return nil;
+    }
+}
+
 
 
 @end

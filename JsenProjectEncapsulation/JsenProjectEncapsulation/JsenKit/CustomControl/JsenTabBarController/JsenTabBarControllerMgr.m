@@ -34,9 +34,9 @@
 - (JsenTabBarController *)mgrTabBarController {
     
     //配置attribute 目前只支持2个 或者 4个
-    JsenTabBarItemAttribute * homeAttribute = [[JsenTabBarItemAttribute alloc] initWithTitle:@"首页" imageNameForSel:@"tab_home_sel" imageNameForNor:@"tab_home_nor"];
-    JsenTabBarItemAttribute * friendAttribute = [[JsenTabBarItemAttribute alloc] initWithTitle:@"朋友" imageNameForSel:@"tab_friend_sel" imageNameForNor:@"tab_friend_nor"];
-    JsenTabBarItemAttribute * foundAttribute = [[JsenTabBarItemAttribute alloc] initWithTitle:@"发现" imageNameForSel:@"tab_found_sel" imageNameForNor:@"tab_found_nor"];
+    JsenTabBarItemAttribute * homeAttribute    = [[JsenTabBarItemAttribute alloc] initWithTitle:@"首页" imageNameForSel:@"tab_home_sel" imageNameForNor:@"tab_home_nor"];
+    JsenTabBarItemAttribute * friendAttribute  = [[JsenTabBarItemAttribute alloc] initWithTitle:@"朋友" imageNameForSel:@"tab_friend_sel" imageNameForNor:@"tab_friend_nor"];
+    JsenTabBarItemAttribute * foundAttribute   = [[JsenTabBarItemAttribute alloc] initWithTitle:@"发现" imageNameForSel:@"tab_found_sel" imageNameForNor:@"tab_found_nor"];
     JsenTabBarItemAttribute * settingAttribute = [[JsenTabBarItemAttribute alloc] initWithTitle:@"设置" imageNameForSel:@"tab_setting_sel" imageNameForNor:@"tab_setting_nor"];
     NSArray * attributes = @[
                              homeAttribute,
@@ -45,15 +45,15 @@
                              settingAttribute,
                              ];
     
-    JsenHomeViewController * home = [[JsenHomeViewController alloc] init];
-    home.title = @"首页";
-    
-    JsenFriendViewController * friend = [[JsenFriendViewController alloc] init];
-    friend.title = @"朋友";
-    
-    JsenFoundViewController * found = [[JsenFoundViewController alloc] init];
-    found.title = @"发现";
-    
+    JsenHomeViewController   * home     = [[JsenHomeViewController alloc] init];
+    home.title                          = @"首页";
+
+    JsenFriendViewController * friend   = [[JsenFriendViewController alloc] init];
+    friend.title                        = @"朋友";
+
+    JsenFoundViewController  * found    = [[JsenFoundViewController alloc] init];
+    found.title                         = @"发现";
+
     JsenSettingViewController * setting = [[JsenSettingViewController alloc] init];
     setting.title = @"设置";
     
