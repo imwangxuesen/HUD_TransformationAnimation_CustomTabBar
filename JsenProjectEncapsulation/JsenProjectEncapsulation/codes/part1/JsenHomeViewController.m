@@ -9,6 +9,7 @@
 #import "JsenHomeViewController.h"
 #import "JsenTabBarControllerMgr.h"
 #import "UINavigationBar+Expansion.h"
+#import "JsenPraiseViewController.h"
 @implementation JsenHomeViewController
 
 static int bage = 0;
@@ -40,6 +41,11 @@ static int bage = 0;
     [btn3 setTitle:@"隐藏tabbar" forState:UIControlStateNormal];
     [btn3 addTarget:self action:@selector(btn3clicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn3];
+    
+    UIButton *btn4 = [[UIButton alloc] initWithFrame:CGRectMake(100,400, 150, 30)];
+    [btn4 setTitle:@"跳转动画" forState:UIControlStateNormal];
+    [btn4 addTarget:self action:@selector(btn4clicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn4];
     
     [self.navigationController.navigationBar jsen_setBackgroundColor:[UIColor blueColor]];
     
@@ -73,6 +79,13 @@ static int bage = 0;
 
 - (void)btn3clicked:(UIButton *)btn {
     [[JsenTabBarControllerMgr shareMgr] hidenWithAnimation:YES];
+    
+}
+
+- (void)btn4clicked:(UIButton *)btn {
+    UIStoryboard *stb = [UIStoryboard storyboardWithName:@"Main"bundle:[NSBundle mainBundle]];
+    JsenPraiseViewController *vc = (JsenPraiseViewController *)[stb instantiateViewControllerWithIdentifier:@"PraiseViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 @end

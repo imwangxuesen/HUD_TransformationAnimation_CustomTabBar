@@ -62,7 +62,6 @@
 
 #pragma mark - Private Method
 - (void)rightItemClicked:(UIBarButtonItem *)item {
-    
     JsenSettingViewController * setting = [[JsenSettingViewController alloc] init];
     [self.navigationController pushViewController:setting animated:YES];
 }
@@ -72,6 +71,7 @@
     
     return 1;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jsen"];
     if (!cell) {
@@ -81,6 +81,7 @@
     return cell;
     
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return 60;

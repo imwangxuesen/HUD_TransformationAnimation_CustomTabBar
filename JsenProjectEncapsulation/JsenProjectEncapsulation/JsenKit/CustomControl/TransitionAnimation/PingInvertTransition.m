@@ -30,7 +30,7 @@
     self.transitionContext = transitionContext;
     
     JsenFoundViewController *toVC = (JsenFoundViewController *)[self.transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    JsenSettingViewController *fromVC = (JsenSettingViewController *)[self.transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    JsenSettingViewController * fromVC = (JsenSettingViewController *)[self.transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIView * contView = [transitionContext containerView];
 //    UIButton * button = (UIButton *)toVC.navigationItem.leftBarButtonItem.customView;
     
