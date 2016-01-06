@@ -33,7 +33,9 @@
 - (JsenPraiseTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     JsenPraiseTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"JsenPraiseTableViewCell"];
-    
+    if (indexPath.row % 2) {
+        cell.backgroundColor = [UIColor yellowColor];
+    }
     return cell;
     
 }

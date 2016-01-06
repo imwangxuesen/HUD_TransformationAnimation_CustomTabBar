@@ -92,7 +92,7 @@
     
     CABasicAnimation * positionAnima = [CABasicAnimation animationWithKeyPath:@"position.y"];
     positionAnima.fromValue = @(self.startView.center.y);
-    positionAnima.toValue = @(self.startView.center.y - 14);
+    positionAnima.toValue = @(self.startView.center.y - 20);
     positionAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
     CAAnimationGroup * animaGroup = [CAAnimationGroup animation];
@@ -138,7 +138,7 @@
         
         CABasicAnimation * positionAnima = [CABasicAnimation animationWithKeyPath:@"position.y"];
         positionAnima.fromValue = @(self.startView.center.y);
-        positionAnima.toValue = @(self.startView.center.y + 7);
+        positionAnima.toValue = @(self.startView.center.y + 10);
         positionAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         
         CAAnimationGroup * animationGroup = [CAAnimationGroup animation];
