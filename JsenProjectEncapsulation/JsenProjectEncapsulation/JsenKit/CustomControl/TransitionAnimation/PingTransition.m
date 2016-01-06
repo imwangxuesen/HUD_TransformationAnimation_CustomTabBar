@@ -54,7 +54,7 @@
             finalPoint = CGPointMake(button.center.x - CGRectGetMaxX(toVC.view.bounds) , button.center.y - CGRectGetMaxX(toVC.view.bounds));
         } else {
             //第三象限
-            finalPoint = CGPointMake(button.center.x - CGRectGetMaxX(toVC.view.bounds), button.center.y - CGRectGetMaxY(toVC.view.bounds));
+            finalPoint = CGPointMake(button.center.x - CGRectGetMaxX(toVC.view.bounds), button.center.y - 0);
         }
     }
     
