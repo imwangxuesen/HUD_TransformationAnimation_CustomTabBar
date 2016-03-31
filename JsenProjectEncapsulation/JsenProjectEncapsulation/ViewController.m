@@ -34,6 +34,8 @@
                              @"password"    :@"123456",
                              @"loginsubmit" :@"ture"
                              };
+    
+    
     [self.jsenModel docallLoginRequest:params];
     [self.jsenModel docallHomeRequest:home_dict];
 }
@@ -93,4 +95,16 @@
     
     [self.jsenModel docallUploadHeaderRequest:paramsup];
 }
+
+- (void)uploadHeaderRequestFinished:(JsenRequestResponseSuccess *)success {
+    JSENLOGINFO(@"uploadHeader success");
+
+    
+}
+
+- (void)uploadHeaderRequestFailed:(JsenRequestResponseFailure *)failure {
+    
+    JSENLOGINFO(@"uploadHeader failure");
+}
+
 @end

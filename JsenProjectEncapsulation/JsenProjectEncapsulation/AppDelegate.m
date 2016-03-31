@@ -78,19 +78,9 @@
         } completion:^(BOOL finished) {
             self.window.rootViewController.view.layer.mask = nil;
             
-            //
-//            NSLog(@"%f -----  %f",self.myPrivateTabBarController.view.bounds.size.width,self.myPrivateTabBarController.view.bounds.size.height);
-//            NSLog(@"%f,%f",IH_DEVICE_HEIGHT,IH_DEVICE_WIDTH);
-            
         }];
     }];
 
-    
-    
-    
-    
-    
-    
     return YES;
 }
 

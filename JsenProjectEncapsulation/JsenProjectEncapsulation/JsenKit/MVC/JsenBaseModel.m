@@ -70,6 +70,7 @@
              responseParseFormat:(JResponseParseFormat)responseParseFormat
                           params:params
                responseSelectors:(JsenRequestResponseSelectors *)selectors {
+    
     JsenRequest * request = [JsenRequest requestWithName:requestName
                                            forServiceUrl:serviceUrl
                                            requestMethod:requestMethod

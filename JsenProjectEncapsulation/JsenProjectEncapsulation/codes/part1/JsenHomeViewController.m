@@ -10,6 +10,8 @@
 #import "JsenTabBarControllerMgr.h"
 #import "UINavigationBar+Expansion.h"
 #import "JsenPraiseViewController.h"
+
+#import "ViewController.h"
 @implementation JsenHomeViewController
 
 static int bage = 0;
@@ -18,6 +20,11 @@ static int bage = 0;
     
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
+    
+//    
+//    ViewController * vc = [[ViewController alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
+//    
     
     //添加功能按钮
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 150, 30)];

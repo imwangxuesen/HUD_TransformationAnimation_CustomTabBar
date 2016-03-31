@@ -24,4 +24,5 @@
 - (void)docallUploadHeaderRequest:(NSDictionary *)params;
 
 @property (nonatomic , weak)id<JsenModelDelegate>delegate;
+
 @end

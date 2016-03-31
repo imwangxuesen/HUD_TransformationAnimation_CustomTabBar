@@ -8,6 +8,7 @@
 
 #import "JsenModel.h"
 
+
 #define HomeRequestName  @"Home_Request_Name"
 #define LoginRequestName @"Login_Request_Name"
 #define UploadHeaderRequestName @"Upload_Header_Request_Name"
@@ -115,6 +116,8 @@
 - (void)requestDidFinished:(JsenRequestResponseSuccess *)response{
     if ([response.serviceName isEqualToString:HomeRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(homeRequestFinished:)]) {
         [self.delegate performSelector:@selector(homeRequestFinished:) withObject:nil];
+    }else if ([response.serviceName isEqualToString:UploadHeaderRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(uploadHeaderRequestFinished:)]) {
+        [self.delegate performSelector:@selector(uploadHeaderRequestFinished:) withObject:nil];
     }
     
 }
@@ -122,7 +125,8 @@
 - (void)requestDidFailed:(JsenRequestResponseFailure *)response{
     if ([response.serviceName isEqualToString:HomeRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(homeRequestFailed:)]) {
         [self.delegate performSelector:@selector(homeRequestFailed:) withObject:nil];
+    } else if ([response.serviceName isEqualToString:UploadHeaderRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(uploadHeaderRequestFailed:)]) {
+        [self.delegate performSelector:@selector(uploadHeaderRequestFailed:) withObject:nil];
     }
 }
-
 @end

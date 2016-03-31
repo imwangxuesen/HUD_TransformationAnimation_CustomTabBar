@@ -8,13 +8,11 @@
 
 #import "JsenRequest.h"
 
-
 #define BOUNDARY @"AaB03x" //设置边界 参数可以随便设置
 
 @interface JsenRequest()
 @property (nonatomic , strong)NSURLSessionUploadTask *uploadTask;
 @property (nonatomic , strong)NSURLSessionDataTask *dataTask;
-
 
 @end
 
@@ -133,12 +131,6 @@
         }
     }
     
-//    NSMutableString *bodyString = [[NSMutableString alloc] init];
-    
-    //拼接
-    
-//    
-//    NSData *fileData;
     NSMutableString * bodyString = [[NSMutableString alloc] init];
     for (id obj in self.params) {
         if (![self.params[obj] isKindOfClass:[UIImage class] ]) {
@@ -157,16 +149,13 @@
         }
         
     }
-//
     NSMutableData *bodyData = [NSMutableData data];
     [bodyData appendData:[bodyString dataUsingEncoding:NSUTF8StringEncoding]];
 //    //图片数据
     [bodyData appendData:fileData];
     NSString *endStr = [NSString stringWithFormat:@"\r\n--%@--\r\n",BOUNDARY];
     [bodyData appendData:[endStr dataUsingEncoding:NSUTF8StringEncoding]];
-//
     return bodyData;
-//    return nil;
 }
 
 //根据返回的数据 格式化成对应的json xml
