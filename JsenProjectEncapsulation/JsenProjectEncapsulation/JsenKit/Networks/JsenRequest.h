@@ -61,14 +61,21 @@ typedef enum{
 @interface JsenRequest : NSObject
 
 typedef void(^JsenRequestBlockHandler)(JsenRequest * request, JRequestingStatus requestingStatus, JsenRequestResponseSuccess *responseSuccess, JsenRequestResponseFailure *responseFailed);
+typedef void(^JsenRequestSuccess)(JsenRequest * request, JRequestingStatus requestingStatus, JsenRequestResponseSuccess *responseSuccess);
+typedef void(^JsenRequestFailed)(JsenRequest * request, JRequestingStatus requestingStatus, JsenRequestResponseFailure *responseFailed);
 
 @property (nonatomic , weak)   id<JsenRequestDelegate> delegate;
+
 @property (nonatomic , strong) JsenRequestBlockHandler requestHandler;
-@property (nonatomic , copy  ) NSString                * requestName;
-@property (nonatomic , copy  ) NSString                * requestURL;
+@property (nonatomic , strong) JsenRequestFailed       requestFailed;
+@property (nonatomic , strong) JsenRequestSuccess      requestSuccess;
 @property (nonatomic , assign) JResponseParseFormat    responseParseFormat;
 @property (nonatomic , assign) JRequestMethod          requestMethod;
-@property (nonatomic , strong) NSDictionary            *params;
+@property (nonatomic , copy  ) NSString                * requestName;
+@property (nonatomic , copy  ) NSString                * requestURL;
+@property (nonatomic , strong) NSDictionary            * params;
+@property (nonatomic , strong) NSURLSessionUploadTask  * uploadTask;
+@property (nonatomic , strong) NSURLSessionDataTask    * dataTask;
 
 - (void)start;
 - (void)cancel;
@@ -76,8 +83,11 @@ typedef void(^JsenRequestBlockHandler)(JsenRequest * request, JRequestingStatus 
 
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params;
 
++ (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params withDelegate:(id<JsenRequestDelegate>) delegate;
+
+
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params withRequestBlock:(JsenRequestBlockHandler)customerBlock;
 
-+ (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params withDelegate:(id<JsenRequestDelegate>) delegate;
++ (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params success:(JsenRequestSuccess)success failed:(JsenRequestFailed)failed;
 
 @end

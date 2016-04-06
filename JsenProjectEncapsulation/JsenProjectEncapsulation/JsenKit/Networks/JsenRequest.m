@@ -11,8 +11,6 @@
 #define BOUNDARY @"AaB03x" //设置边界 参数可以随便设置
 
 @interface JsenRequest()
-@property (nonatomic , strong)NSURLSessionUploadTask *uploadTask;
-@property (nonatomic , strong)NSURLSessionDataTask *dataTask;
 
 @end
 
@@ -61,6 +59,7 @@
     }
 }
 
+
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params{
     NSAssert(![serviceURL isEqualToString:@""] && serviceURL,  @"ServiceURL is empty!!");
     JsenRequest * request = [[JsenRequest alloc] init];
@@ -69,18 +68,6 @@
     request.requestMethod       = method;
     request.responseParseFormat = format;
     request.params = params;
-    return  request;
-}
-
-+ (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params withRequestBlock:(JsenRequestBlockHandler)customerBlock{
-    NSAssert(![serviceURL isEqualToString:@""] && serviceURL,  @"ServiceURL is empty!!");
-    JsenRequest * request = [[JsenRequest alloc] init];
-    request.requestURL          = [request fixRequestUrlWithServiceURL:serviceURL params:params];
-    request.requestName         = name;
-    request.requestMethod       = method;
-    request.responseParseFormat = format;
-    request.params              = params;
-    request.requestHandler      = customerBlock;
     return  request;
 }
 
@@ -93,6 +80,31 @@
     request.responseParseFormat = format;
     request.params              = params;
     request.delegate            = delegate;
+    return  request;
+    
+}
+
+
++ (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params withRequestBlock:(JsenRequestBlockHandler)customerBlock {
+    NSAssert(![serviceURL isEqualToString:@""] && serviceURL,  @"ServiceURL is empty!!");
+    JsenRequest * request = [[JsenRequest alloc] init];
+    request.requestURL          = [request fixRequestUrlWithServiceURL:serviceURL params:params];
+    request.requestName         = name;
+    request.requestMethod       = method;
+    request.responseParseFormat = format;
+    request.params              = params;
+    request.requestHandler      = customerBlock;
+    return  request;
+}
+
++ (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params success:(JsenRequestSuccess)success failed:(JsenRequestFailed)failed {
+    NSAssert(![serviceURL isEqualToString:@""] && serviceURL,  @"ServiceURL is empty!!");
+    JsenRequest * request = [[JsenRequest alloc] init];
+    request.requestURL          = [request fixRequestUrlWithServiceURL:serviceURL params:params];
+    request.requestName         = name;
+    request.requestMethod       = method;
+    request.responseParseFormat = format;
+    request.params              = params;
     return  request;
     
 }
@@ -314,21 +326,26 @@
 - (void)requestDidStarted {
     if (self.delegate) {
         [self.delegate requestDidStarted:self.requestName];
+        return;
     }
     
-    if (self.requestHandler) {
-        _requestHandler(self, JRequestingStatusStarted, nil, nil);
+    if (!self.requestHandler) {
+        self.requestHandler(self, JRequestingStatusStarted, nil, nil);
+        return;
     }
+
     JSENLOGINFO(@"%@: requestDidStarted: %@%@", self.requestName, Domain_Ture_BaseURL, self.requestURL);
 }
 
 - (void)requestDidCanceled {
     if (self.delegate) {
         [self.delegate requestDidCanceled:self.requestName];
+        return;
     }
     
     if (self.requestHandler) {
         _requestHandler(self, JRequestingStatusCanceled, nil, nil);
+        return;
     }
     JSENLOGINFO(@"%@: requestDidCanceled: %@%@", self.requestName, Domain_Ture_BaseURL, self.requestURL);
 }
@@ -336,22 +353,35 @@
 - (void)requestDidFinished:(JsenRequestResponseSuccess *)response {
     if (self.delegate) {
         [self.delegate requestDidFinished:response];
+        return;
     }
     
     if (self.requestHandler) {
         self.requestHandler(self, JRequestingStatusFinished, response, nil);
+        return;
     }
     
+    if (!self.requestSuccess) {
+        self.requestSuccess(self, JRequestingStatusFinished, response);
+        return;
+    }
     JSENLOGINFO(@"%@: requestDidFinished , %@", self.requestName, response.userInfo);
 }
 
 - (void)requestDidFailed:(JsenRequestResponseFailure *)response {
     if (self.delegate) {
         [self.delegate requestDidFailed:response];
+        return;
     }
     
     if (self.requestHandler) {
         _requestHandler(self,JRequestingStatusFailed,nil,response);
+        return;
+    }
+    
+    if (!self.requestFailed) {
+        self.requestFailed(self,JRequestingStatusFailed,response);
+        return;
     }
     JSENLOGINFO(@"%@: requestDidFailed , %@", self.requestName, response.errorInfo);
 }

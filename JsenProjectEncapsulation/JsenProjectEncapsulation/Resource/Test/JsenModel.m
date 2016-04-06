@@ -21,23 +21,15 @@
 
 - (void)docallHomeRequest:(NSDictionary *)params {
     
-    
-//    [self docallRequest:HomeRequestName
-//          forServiceUrl:Home
-//          requestMethod:JRequestMethodGet
-//    responseParseFormat:JResponseParseFormatJSON
-//                 params:params
-//      responseSelectors:[JsenRequestResponseSelectors getResponsSelectorsWithStart:@selector(homeRequestStarted:)
-//                                                                            cancel:@selector(homeRequestCanceled:)
-//                                                                              fail:@selector(homeRequestFailed:)
-//                                                                            finish:@selector(homeRequestFinished:)]];
-  
     [self docallRequestUseDelegate:HomeRequestName
           forServiceUrl:Home
           requestMethod:JRequestMethodGet
     responseParseFormat:JResponseParseFormatJSON
                  params:params
-      responseSelectors:[JsenRequestResponseSelectors getResponsSelectorsWithStart:@selector(homeRequestStarted:) cancel:@selector(homeRequestCanceled:) fail:@selector(homeRequestFailed:) finish:@selector(homeRequestFinished:)]];
+      responseSelectors:[JsenRequestResponseSelectors getResponsSelectorsWithStart:@selector(homeRequestStarted:)
+                                                                            cancel:@selector(homeRequestCanceled:)
+                                                                              fail:@selector(homeRequestFailed:)
+                                                                            finish:@selector(homeRequestFinished:)]];
     
 }
 
@@ -70,63 +62,36 @@
                                                                               fail:@selector(uploadHeaderRequestFailed:)
                                                                             finish:@selector(uploadHeaderRequestFinished:)]];
     
-//    JsenRequest *request = [JsenRequest requestWithName:UploadHeaderRequestName forServiceUrl:UploadHeader requestMethod:JRequestMethodMultipartPost responseParseFormat:JResponseParseFormatJSON params:params withRequestBlock:^(JsenRequest *request, JRequestingStatus requestingStatus, JsenRequestResponseSuccess *responseSuccess, JsenRequestResponseFailure *responseFailed) {
-//        switch (requestingStatus) {
-//            case JRequestingStatusStarted:
-//                if (self.modelDelegate &&[self.modelDelegate respondsToSelector:@selector(uploadHeaderRequestStarted)]) {
-//                    [self.modelDelegate performSelector:@selector(uploadHeaderRequestStarted) withObject:nil];
-//                }
-//                break;
-//            case JRequestingStatusCanceled:
-//                if (self.modelDelegate &&[self.modelDelegate respondsToSelector:@selector(uploadHeaderRequestCanceled:)]) {
-//                    [self.modelDelegate performSelector:@selector(uploadHeaderRequestCanceled:) withObject:responseFailed];
-//                }
-//                break;
-//            case JRequestingStatusFailed:
-//                if (self.modelDelegate &&[self.modelDelegate respondsToSelector:@selector(uploadHeaderRequestFailed:)]) {
-//                    [self.modelDelegate performSelector:@selector(uploadHeaderRequestFailed:) withObject:responseFailed];
-//                }
-//                break;
-//            case JRequestingStatusFinished:
-//                if (self.modelDelegate &&[self.modelDelegate respondsToSelector:@selector(uploadHeaderRequestFinished:)]) {
-//                    [self.modelDelegate performSelector:@selector(uploadHeaderRequestFinished:) withObject:responseSuccess];
-//                }
-//                break;
-//                
-//            default:
-//                break;
-//        }
-//
-//    }];
-//    [request start];
 }
 
 
 #pragma mark - 
 - (void)requestDidStarted:(NSString *)serviceName{
     if ([serviceName isEqualToString:HomeRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(homeRequestStarted:)]) {
-        [self.delegate performSelector:@selector(homeRequestStarted:) withObject:nil];
+        [self.delegate performSelector:@selector(homeRequestStarted:) withObject:serviceName];
     }
 }
 
 - (void)requestDidCanceled:(NSString *)serviceName{
     if ([serviceName isEqualToString:HomeRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(homeRequestCanceled:)]) {
-        [self.delegate performSelector:@selector(homeRequestCanceled:) withObject:nil];
-    }}
+        [self.delegate performSelector:@selector(homeRequestCanceled:) withObject:serviceName];
+    }
+}
+
 - (void)requestDidFinished:(JsenRequestResponseSuccess *)response{
     if ([response.serviceName isEqualToString:HomeRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(homeRequestFinished:)]) {
-        [self.delegate performSelector:@selector(homeRequestFinished:) withObject:nil];
+        [self.delegate performSelector:@selector(homeRequestFinished:) withObject:response];
     }else if ([response.serviceName isEqualToString:UploadHeaderRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(uploadHeaderRequestFinished:)]) {
-        [self.delegate performSelector:@selector(uploadHeaderRequestFinished:) withObject:nil];
+        [self.delegate performSelector:@selector(uploadHeaderRequestFinished:) withObject:response];
     }
     
 }
 
 - (void)requestDidFailed:(JsenRequestResponseFailure *)response{
     if ([response.serviceName isEqualToString:HomeRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(homeRequestFailed:)]) {
-        [self.delegate performSelector:@selector(homeRequestFailed:) withObject:nil];
+        [self.delegate performSelector:@selector(homeRequestFailed:) withObject:response];
     } else if ([response.serviceName isEqualToString:UploadHeaderRequestName] && self.delegate && [self.delegate respondsToSelector:@selector(uploadHeaderRequestFailed:)]) {
-        [self.delegate performSelector:@selector(uploadHeaderRequestFailed:) withObject:nil];
+        [self.delegate performSelector:@selector(uploadHeaderRequestFailed:) withObject:response];
     }
 }
 @end
