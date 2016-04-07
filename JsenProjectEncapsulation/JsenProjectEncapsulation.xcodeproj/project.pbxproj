@@ -12,7 +12,10 @@
 		4C411B361C22C6FD0017870C /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C411B341C22C6FD0017870C /* error@2x.png */; };
 		4C411B371C22C6FD0017870C /* success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C411B351C22C6FD0017870C /* success@2x.png */; };
 		4C4FF8591C3A0FEE004979A3 /* JsenJumpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4FF8581C3A0FEE004979A3 /* JsenJumpView.m */; };
-		4C531FD21CB520E100406387 /* JsenBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C531FD11CB520E100406387 /* JsenBaseRequest.m */; };
+		4C531FD81CB63F6500406387 /* JsenRequestParamsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C531FD71CB63F6500406387 /* JsenRequestParamsModel.m */; };
+		4C531FDB1CB6476300406387 /* JsenRequestParamsModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C531FDA1CB6476300406387 /* JsenRequestParamsModelManager.m */; };
+		4C531FDE1CB6571A00406387 /* JsenRequestResponseSelectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C531FDD1CB6571A00406387 /* JsenRequestResponseSelectors.m */; };
+		4C531FE11CB6581C00406387 /* JsenRequestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C531FE01CB6581C00406387 /* JsenRequestClient.m */; };
 		4C560C531C25685800704287 /* jsen_titleview_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C560C521C25685800704287 /* jsen_titleview_placeholder.png */; };
 		4C5672D41C1FBACE00ABDAAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5672D31C1FBACE00ABDAAA /* main.m */; };
 		4C5672D71C1FBACE00ABDAAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5672D61C1FBACE00ABDAAA /* AppDelegate.m */; };
@@ -36,7 +39,6 @@
 		4C5673581C1FBB4900ABDAAA /* JsenBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5673301C1FBB4900ABDAAA /* JsenBaseModel.m */; };
 		4C5673591C1FBB4900ABDAAA /* JsenBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5673321C1FBB4900ABDAAA /* JsenBaseView.m */; };
 		4C56735A1C1FBB4900ABDAAA /* JsenBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5673341C1FBB4900ABDAAA /* JsenBaseViewController.m */; };
-		4C56735B1C1FBB4900ABDAAA /* JsenRequestResponseSelectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5673361C1FBB4900ABDAAA /* JsenRequestResponseSelectors.m */; };
 		4C56735C1C1FBB4900ABDAAA /* JsenNetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5673391C1FBB4900ABDAAA /* JsenNetworkMonitor.m */; };
 		4C56735D1C1FBB4900ABDAAA /* JsenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C56733B1C1FBB4900ABDAAA /* JsenRequest.m */; };
 		4C56735E1C1FBB4900ABDAAA /* JsenRequestResponseFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C56733E1C1FBB4900ABDAAA /* JsenRequestResponseFailure.m */; };
@@ -56,6 +58,9 @@
 		4CC11D4F1C2118B700F897D0 /* NSString+Expansion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D4E1C2118B700F897D0 /* NSString+Expansion.m */; };
 		4CC11D521C21313600F897D0 /* JsenFrameKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D511C21313600F897D0 /* JsenFrameKit.m */; };
 		4CC11D551C214C8600F897D0 /* JsenTitleViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC11D541C214C8600F897D0 /* JsenTitleViewAttribute.m */; };
+		4CDEA6E91CB669CE003EB214 /* JsenLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEA6E81CB669CE003EB214 /* JsenLoginModel.m */; };
+		4CDEA6EC1CB66B52003EB214 /* JsenMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEA6EB1CB66B52003EB214 /* JsenMessageModel.m */; };
+		4CDEA6EF1CB66B77003EB214 /* JsenVariablesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEA6EE1CB66B77003EB214 /* JsenVariablesModel.m */; };
 		4CF0AE6F1C3B987500FE1911 /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF0AE6E1C3B987500FE1911 /* shadow.png */; };
 		4CF0AE721C3BA9E100FE1911 /* praise.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF0AE701C3BA9E100FE1911 /* praise.png */; };
 		4CF0AE731C3BA9E100FE1911 /* praised.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF0AE711C3BA9E100FE1911 /* praised.png */; };
@@ -89,8 +94,14 @@
 		4C411B351C22C6FD0017870C /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@2x.png"; sourceTree = "<group>"; };
 		4C4FF8571C3A0FEE004979A3 /* JsenJumpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenJumpView.h; sourceTree = "<group>"; };
 		4C4FF8581C3A0FEE004979A3 /* JsenJumpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenJumpView.m; sourceTree = "<group>"; };
-		4C531FD01CB520E100406387 /* JsenBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenBaseRequest.h; sourceTree = "<group>"; };
-		4C531FD11CB520E100406387 /* JsenBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenBaseRequest.m; sourceTree = "<group>"; };
+		4C531FD61CB63F6500406387 /* JsenRequestParamsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenRequestParamsModel.h; sourceTree = "<group>"; };
+		4C531FD71CB63F6500406387 /* JsenRequestParamsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenRequestParamsModel.m; sourceTree = "<group>"; };
+		4C531FD91CB6476300406387 /* JsenRequestParamsModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenRequestParamsModelManager.h; sourceTree = "<group>"; };
+		4C531FDA1CB6476300406387 /* JsenRequestParamsModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenRequestParamsModelManager.m; sourceTree = "<group>"; };
+		4C531FDC1CB6571A00406387 /* JsenRequestResponseSelectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenRequestResponseSelectors.h; sourceTree = "<group>"; };
+		4C531FDD1CB6571A00406387 /* JsenRequestResponseSelectors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenRequestResponseSelectors.m; sourceTree = "<group>"; };
+		4C531FDF1CB6581C00406387 /* JsenRequestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenRequestClient.h; sourceTree = "<group>"; };
+		4C531FE01CB6581C00406387 /* JsenRequestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenRequestClient.m; sourceTree = "<group>"; };
 		4C560C521C25685800704287 /* jsen_titleview_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jsen_titleview_placeholder.png; sourceTree = "<group>"; };
 		4C5672CF1C1FBACE00ABDAAA /* JsenProjectEncapsulation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsenProjectEncapsulation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5672D31C1FBACE00ABDAAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -143,8 +154,6 @@
 		4C5673321C1FBB4900ABDAAA /* JsenBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenBaseView.m; sourceTree = "<group>"; };
 		4C5673331C1FBB4900ABDAAA /* JsenBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenBaseViewController.h; sourceTree = "<group>"; };
 		4C5673341C1FBB4900ABDAAA /* JsenBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenBaseViewController.m; sourceTree = "<group>"; };
-		4C5673351C1FBB4900ABDAAA /* JsenRequestResponseSelectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenRequestResponseSelectors.h; sourceTree = "<group>"; };
-		4C5673361C1FBB4900ABDAAA /* JsenRequestResponseSelectors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenRequestResponseSelectors.m; sourceTree = "<group>"; };
 		4C5673381C1FBB4900ABDAAA /* JsenNetworkMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenNetworkMonitor.h; sourceTree = "<group>"; };
 		4C5673391C1FBB4900ABDAAA /* JsenNetworkMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenNetworkMonitor.m; sourceTree = "<group>"; };
 		4C56733A1C1FBB4900ABDAAA /* JsenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenRequest.h; sourceTree = "<group>"; };
@@ -182,6 +191,12 @@
 		4CC11D511C21313600F897D0 /* JsenFrameKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenFrameKit.m; sourceTree = "<group>"; };
 		4CC11D531C214C8600F897D0 /* JsenTitleViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenTitleViewAttribute.h; sourceTree = "<group>"; };
 		4CC11D541C214C8600F897D0 /* JsenTitleViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenTitleViewAttribute.m; sourceTree = "<group>"; };
+		4CDEA6E71CB669CE003EB214 /* JsenLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenLoginModel.h; sourceTree = "<group>"; };
+		4CDEA6E81CB669CE003EB214 /* JsenLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenLoginModel.m; sourceTree = "<group>"; };
+		4CDEA6EA1CB66B52003EB214 /* JsenMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenMessageModel.h; sourceTree = "<group>"; };
+		4CDEA6EB1CB66B52003EB214 /* JsenMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenMessageModel.m; sourceTree = "<group>"; };
+		4CDEA6ED1CB66B77003EB214 /* JsenVariablesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsenVariablesModel.h; sourceTree = "<group>"; };
+		4CDEA6EE1CB66B77003EB214 /* JsenVariablesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsenVariablesModel.m; sourceTree = "<group>"; };
 		4CF0AE6E1C3B987500FE1911 /* shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow.png; sourceTree = "<group>"; };
 		4CF0AE701C3BA9E100FE1911 /* praise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = praise.png; sourceTree = "<group>"; };
 		4CF0AE711C3BA9E100FE1911 /* praised.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = praised.png; sourceTree = "<group>"; };
@@ -461,10 +476,6 @@
 				4C5673321C1FBB4900ABDAAA /* JsenBaseView.m */,
 				4C5673331C1FBB4900ABDAAA /* JsenBaseViewController.h */,
 				4C5673341C1FBB4900ABDAAA /* JsenBaseViewController.m */,
-				4C5673351C1FBB4900ABDAAA /* JsenRequestResponseSelectors.h */,
-				4C5673361C1FBB4900ABDAAA /* JsenRequestResponseSelectors.m */,
-				4C531FD01CB520E100406387 /* JsenBaseRequest.h */,
-				4C531FD11CB520E100406387 /* JsenBaseRequest.m */,
 			);
 			path = MVC;
 			sourceTree = "<group>";
@@ -472,6 +483,10 @@
 		4C5673371C1FBB4900ABDAAA /* Networks */ = {
 			isa = PBXGroup;
 			children = (
+				4C531FDF1CB6581C00406387 /* JsenRequestClient.h */,
+				4C531FE01CB6581C00406387 /* JsenRequestClient.m */,
+				4C531FDC1CB6571A00406387 /* JsenRequestResponseSelectors.h */,
+				4C531FDD1CB6571A00406387 /* JsenRequestResponseSelectors.m */,
 				4C5673381C1FBB4900ABDAAA /* JsenNetworkMonitor.h */,
 				4C5673391C1FBB4900ABDAAA /* JsenNetworkMonitor.m */,
 				4C56733A1C1FBB4900ABDAAA /* JsenRequest.h */,
@@ -483,6 +498,10 @@
 				4C5673401C1FBB4900ABDAAA /* JsenRequestResponseSuccess.m */,
 				4C5673411C1FBB4900ABDAAA /* Reachability.h */,
 				4C5673421C1FBB4900ABDAAA /* Reachability.m */,
+				4C531FD61CB63F6500406387 /* JsenRequestParamsModel.h */,
+				4C531FD71CB63F6500406387 /* JsenRequestParamsModel.m */,
+				4C531FD91CB6476300406387 /* JsenRequestParamsModelManager.h */,
+				4C531FDA1CB6476300406387 /* JsenRequestParamsModelManager.m */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -510,11 +529,17 @@
 		4C5673471C1FBB4900ABDAAA /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				4CDEA6E71CB669CE003EB214 /* JsenLoginModel.h */,
+				4CDEA6E81CB669CE003EB214 /* JsenLoginModel.m */,
 				4C5673481C1FBB4900ABDAAA /* img_avatar.png */,
 				4C5673491C1FBB4900ABDAAA /* JsenModel.h */,
 				4C56734A1C1FBB4900ABDAAA /* JsenModel.m */,
 				4C56734B1C1FBB4900ABDAAA /* JsenModel2.h */,
 				4C56734C1C1FBB4900ABDAAA /* JsenModel2.m */,
+				4CDEA6EA1CB66B52003EB214 /* JsenMessageModel.h */,
+				4CDEA6EB1CB66B52003EB214 /* JsenMessageModel.m */,
+				4CDEA6ED1CB66B77003EB214 /* JsenVariablesModel.h */,
+				4CDEA6EE1CB66B77003EB214 /* JsenVariablesModel.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -754,6 +779,7 @@
 				4C5673611C1FBB4900ABDAAA /* JsenValidationKit.m in Sources */,
 				4C5672D71C1FBACE00ABDAAA /* AppDelegate.m in Sources */,
 				4CC11D4C1C21094A00F897D0 /* UINavigationItem+Expansion.m in Sources */,
+				4CDEA6EF1CB66B77003EB214 /* JsenVariablesModel.m in Sources */,
 				4C5673511C1FBB4900ABDAAA /* NSDictionary+Expansion.m in Sources */,
 				4C5673631C1FBB4900ABDAAA /* JsenModel.m in Sources */,
 				4C5673531C1FBB4900ABDAAA /* JsenTabBarController.m in Sources */,
@@ -763,6 +789,8 @@
 				4C56734D1C1FBB4900ABDAAA /* JsenHomeViewController.m in Sources */,
 				4C5673551C1FBB4900ABDAAA /* JsenTabBarItem.m in Sources */,
 				4CC11D521C21313600F897D0 /* JsenFrameKit.m in Sources */,
+				4C531FDB1CB6476300406387 /* JsenRequestParamsModelManager.m in Sources */,
+				4C531FE11CB6581C00406387 /* JsenRequestClient.m in Sources */,
 				4C5673571C1FBB4900ABDAAA /* JsenTabBarItemMgr.m in Sources */,
 				4C5673581C1FBB4900ABDAAA /* JsenBaseModel.m in Sources */,
 				4C56735F1C1FBB4900ABDAAA /* JsenRequestResponseSuccess.m in Sources */,
@@ -772,10 +800,12 @@
 				4CC11D421C2078CB00F897D0 /* UINavigationBar+Expansion.m in Sources */,
 				4C5673501C1FBB4900ABDAAA /* JsenSettingViewController.m in Sources */,
 				4CF0AE761C3BC00200FE1911 /* JsenPraiseViewController.m in Sources */,
-				4C531FD21CB520E100406387 /* JsenBaseRequest.m in Sources */,
 				4CC11D491C2083EE00F897D0 /* UIImage+Expansion.m in Sources */,
+				4C531FD81CB63F6500406387 /* JsenRequestParamsModel.m in Sources */,
+				4CDEA6E91CB669CE003EB214 /* JsenLoginModel.m in Sources */,
 				4C5673541C1FBB4900ABDAAA /* JsenTabBarControllerMgr.m in Sources */,
 				4C5673561C1FBB4900ABDAAA /* JsenTabBarItemAttribute.m in Sources */,
+				4CDEA6EC1CB66B52003EB214 /* JsenMessageModel.m in Sources */,
 				4C5673521C1FBB4900ABDAAA /* JsenCustomTabBarView.m in Sources */,
 				4CB5F5031C3395C80020982D /* PingInvertTransition.m in Sources */,
 				4C56734F1C1FBB4900ABDAAA /* JsenFoundViewController.m in Sources */,
@@ -783,9 +813,9 @@
 				4CB5F5041C3395C80020982D /* PingTransition.m in Sources */,
 				4C56735E1C1FBB4900ABDAAA /* JsenRequestResponseFailure.m in Sources */,
 				4C56735C1C1FBB4900ABDAAA /* JsenNetworkMonitor.m in Sources */,
-				4C56735B1C1FBB4900ABDAAA /* JsenRequestResponseSelectors.m in Sources */,
 				4CC11D551C214C8600F897D0 /* JsenTitleViewAttribute.m in Sources */,
 				4C5673591C1FBB4900ABDAAA /* JsenBaseView.m in Sources */,
+				4C531FDE1CB6571A00406387 /* JsenRequestResponseSelectors.m in Sources */,
 				4C56735A1C1FBB4900ABDAAA /* JsenBaseViewController.m in Sources */,
 				4CC11D4F1C2118B700F897D0 /* NSString+Expansion.m in Sources */,
 			);

@@ -105,6 +105,8 @@
     request.requestMethod       = method;
     request.responseParseFormat = format;
     request.params              = params;
+    request.requestSuccess      = success;
+    request.requestFailed       = failed;
     return  request;
     
 }
@@ -329,7 +331,7 @@
         return;
     }
     
-    if (!self.requestHandler) {
+    if (self.requestHandler) {
         self.requestHandler(self, JRequestingStatusStarted, nil, nil);
         return;
     }
@@ -361,7 +363,7 @@
         return;
     }
     
-    if (!self.requestSuccess) {
+    if (self.requestSuccess) {
         self.requestSuccess(self, JRequestingStatusFinished, response);
         return;
     }
@@ -379,7 +381,7 @@
         return;
     }
     
-    if (!self.requestFailed) {
+    if (self.requestFailed) {
         self.requestFailed(self,JRequestingStatusFailed,response);
         return;
     }

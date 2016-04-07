@@ -9,6 +9,7 @@
 
 #import "ViewController.h"
 #import "JsenModel.h"
+#import "JsenRequestClient.h"
 #import "JsenTabBarItem.h"
 #import "JsenTabBarItemMgr.h"
 #import "JsenTabBarItemAttribute.h"
@@ -29,6 +30,7 @@
     [home_dict setObject:@""       forKey:@"todateline"];
     [home_dict setObject:@"0"      forKey:@"page"];
     [home_dict setObject:@"20"     forKey:@"perpage"];
+    
     NSDictionary *params = @{
                              @"username"    :@"wangxuesen",
                              @"password"    :@"123456",
@@ -38,6 +40,22 @@
     
     [self.jsenModel docallLoginRequest:params];
     [self.jsenModel docallHomeRequest:home_dict];
+    
+    
+    JsenRequest * request = [JsenRequest requestWithName:@"test1" forServiceUrl:Home requestMethod:JRequestMethodPost responseParseFormat:JResponseParseFormatJSON params:home_dict success:^(JsenRequest *request, JRequestingStatus requestingStatus, JsenRequestResponseSuccess *responseSuccess) {
+        NSLog(@"home ------ success ------ :%@",responseSuccess.userInfo);
+    } failed:^(JsenRequest *request, JRequestingStatus requestingStatus, JsenRequestResponseFailure *responseFailed) {
+        NSLog(@"home ------ Failure ------ :%@",responseFailed);
+    }];
+    [request start];
+    
+    
+    [[JsenRequestClient shareClient] requestWithName:@"requestLoginModel" success:^(JsenRequest *request, JRequestingStatus requestingStatus, JsenRequestResponseSuccess *responseSuccess) {
+        NSLog(@"requestLoginModel success");
+    } failed:^(JsenRequest *request, JRequestingStatus requestingStatus, JsenRequestResponseFailure *responseFailed) {
+        NSLog(@"requestLoginModel failure");
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

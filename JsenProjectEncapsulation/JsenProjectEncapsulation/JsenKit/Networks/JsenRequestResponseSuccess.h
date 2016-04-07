@@ -14,6 +14,7 @@
 @property(nonatomic, strong) NSString *serviceName;
 @property(nonatomic, strong) NSString *status;
 @property(nonatomic, strong) id userInfo;
+@property(nonatomic, strong) id model;
 
 - (id)initWithResponse:(NSDictionary *)responseDic;
 

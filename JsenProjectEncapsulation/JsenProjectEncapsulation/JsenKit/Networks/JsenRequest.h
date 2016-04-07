@@ -77,17 +77,69 @@ typedef void(^JsenRequestFailed)(JsenRequest * request, JRequestingStatus reques
 @property (nonatomic , strong) NSURLSessionUploadTask  * uploadTask;
 @property (nonatomic , strong) NSURLSessionDataTask    * dataTask;
 
+/**
+ *  开始请求
+ */
 - (void)start;
+
+/**
+ *  取消请求
+ */
 - (void)cancel;
 
-
+/**
+ *  无代理参数请求方法（代理需要拿到实例子对象后再设置）
+ *
+ *  @param name       请求名字
+ *  @param serviceURL 请求子URL
+ *  @param method     JRequestMethod
+ *  @param format     JResponseParseFormatJSON ／ JResponseParseFormatXML
+ *  @param params     请求参数
+ *
+ *  @return JsenRequest 实例
+ */
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params;
 
+/**
+ *  代理形式请求方法
+ *
+ *  @param name       请求名字
+ *  @param serviceURL 请求子URL
+ *  @param method     JRequestMethod
+ *  @param format     JResponseParseFormatJSON ／ JResponseParseFormatXML
+ *  @param params     请求参数
+ *
+ *  @return JsenRequest 实例
+ */
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params withDelegate:(id<JsenRequestDelegate>) delegate;
 
-
+/**
+ *  block 形式请求方法
+ *
+ *  @param name       请求名字
+ *  @param serviceURL 请求子URL
+ *  @param method     JRequestMethod
+ *  @param format     JResponseParseFormatJSON ／ JResponseParseFormatXML
+ *  @param params     请求参数
+ *  @param customerBlock 回调block ，成功、失败、状态、都会在这一个block中获取
+ *
+ *  @return JsenRequest 实例
+ */
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params withRequestBlock:(JsenRequestBlockHandler)customerBlock;
 
+/**
+ *  成功、失败 block回调方式的请求方法
+ *
+ *  @param name       请求名字
+ *  @param serviceURL 请求子URL
+ *  @param method     JRequestMethod
+ *  @param format     JResponseParseFormatJSON ／ JResponseParseFormatXML
+ *  @param params     请求参数
+ *  @param success    成功的block回调
+ *  @param failed     失败的block回调
+ *
+ *  @return JsenRequest 实例
+ */
 + (id)requestWithName:(NSString *)name forServiceUrl:(NSString *)serviceURL requestMethod:(JRequestMethod)method responseParseFormat:(JResponseParseFormat)format params:(NSDictionary *)params success:(JsenRequestSuccess)success failed:(JsenRequestFailed)failed;
 
 @end
