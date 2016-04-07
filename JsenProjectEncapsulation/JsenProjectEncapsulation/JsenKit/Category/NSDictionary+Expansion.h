@@ -10,6 +10,7 @@
 
 @interface NSDictionary (Expansion)
 
+//字典转字符串
 - (NSString *)SplicingNetParams;
 
 @end

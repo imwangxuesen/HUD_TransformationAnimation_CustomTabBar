@@ -50,17 +50,9 @@
 #define IS_IOS_9    floorf([[UIDevice currentDevice].systemVersion floatValue]) == 9.0 ? 1 : 0
 #define IS_IOS_8_LATER   ( (IS_IOS_VERSION > 8.0) || (IS_IOS_VERSION == 8.0) ) ? 1 : 0
 
-#define IPHONE_SCREEN_WIDTH         320
-#define IPAD_SCREEN_WIDTH           768
-#define IPAD_SCREEN_HEIGHT          1024
-#define IPHONE_SCREEN_5_HEIGHT      568
-#define IPHONE_SCREEN_HEIGHT        480
-#define IPHONE_DEVICE_HEIGHT    [[UIScreen mainScreen] bounds].size.height;
 // 获取设备屏幕的物理尺寸
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
-#define kScreenWidth [UIScreen mainScreen].bounds.size.width
-#define IH_DEVICE_HEIGHT    [[UIScreen mainScreen] bounds].size.height
-#define IH_DEVICE_WIDTH     [[UIScreen mainScreen] bounds].size.width
+#define ScreenBoundHeight               [UIScreen mainScreen].bounds.size.height
+#define ScreenBoundWidth                [UIScreen mainScreen].bounds.size.width
 
 #define IH_IS_IPHONE ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 
