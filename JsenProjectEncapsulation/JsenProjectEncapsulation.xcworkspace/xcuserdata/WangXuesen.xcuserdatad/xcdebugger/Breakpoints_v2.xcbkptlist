@@ -275,13 +275,13 @@
                   symbolName = "-[JsenRequestClient requestWithName:success:failed:]"
                   moduleName = "JsenProjectEncapsulation"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangxuesen/Desktop/JsenProjectEncapsulation/JsenProjectEncapsulation/JsenProjectEncapsulation/JsenKit/Networks/JsenRequestClient.m"
-                  timestampString = "481719247.950572"
+                  urlString = "file:///Users/wangxuesen/Desktop/HUD_TransformationAnimation_CustomTabBar/JsenProjectEncapsulation/JsenProjectEncapsulation/JsenKit/Networks/JsenRequestClient.m"
+                  timestampString = "490088601.346078"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
                   endingLineNumber = "32"
-                  offsetFromSymbolStart = "207">
+                  offsetFromSymbolStart = "201">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -290,13 +290,13 @@
                   symbolName = "__52-[JsenRequestClient requestWithName:success:failed:]_block_invoke"
                   moduleName = "JsenProjectEncapsulation"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangxuesen/Desktop/JsenProjectEncapsulation/JsenProjectEncapsulation/JsenProjectEncapsulation/JsenKit/Networks/JsenRequestClient.m"
-                  timestampString = "481719247.950891"
+                  urlString = "file:///Users/wangxuesen/Desktop/HUD_TransformationAnimation_CustomTabBar/JsenProjectEncapsulation/JsenProjectEncapsulation/JsenKit/Networks/JsenRequestClient.m"
+                  timestampString = "490088601.34626"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
                   endingLineNumber = "32"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>

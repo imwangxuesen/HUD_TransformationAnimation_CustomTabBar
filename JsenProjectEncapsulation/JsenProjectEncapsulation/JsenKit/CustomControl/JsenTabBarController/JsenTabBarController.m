@@ -52,7 +52,7 @@ static const CGFloat TabBar_Height = 49.0;
 //创建自定义tabbar
 - (void)createCustomTabBar {
     
-    JsenCustomTabBarView * tabBarView = [[JsenCustomTabBarView alloc] initWithFrame:CGRectMake(0, IH_DEVICE_HEIGHT - TabBar_Height, IH_DEVICE_WIDTH, TabBar_Height)];
+    JsenCustomTabBarView * tabBarView = [[JsenCustomTabBarView alloc] initWithFrame:CGRectMake(0, ScreenBoundHeight - TabBar_Height, ScreenBoundWidth, TabBar_Height)];
     tabBarView.showPlusButton = self.showPlusItem;
     tabBarView.attributes     = self.attributes;
     tabBarView.delegate       = self;
@@ -126,7 +126,7 @@ static const CGFloat TabBar_Height = 49.0;
 
 #pragma mark - Show Or Hiden TabBar
 - (void)showWithAnimation:(BOOL)animation {
-    CGFloat showY = IH_DEVICE_HEIGHT - self.tabBarView.bounds.size.height;
+    CGFloat showY = ScreenBoundHeight - self.tabBarView.bounds.size.height;
     if (showY == self.tabBarView.frame.origin.y) {
         return;
     }
@@ -140,7 +140,7 @@ static const CGFloat TabBar_Height = 49.0;
 }
 - (void)hidenWithAnimation:(BOOL)animation {
     CGFloat plusY = self.tabBarView.plusItem.frame.origin.y >= 0 ? 0 : self.tabBarView.plusItem.frame.origin.y;
-     CGFloat hidenY = IH_DEVICE_HEIGHT - plusY;
+     CGFloat hidenY = ScreenBoundHeight - plusY;
     if (hidenY == self.tabBarView.frame.origin.y) {
         return;
     }

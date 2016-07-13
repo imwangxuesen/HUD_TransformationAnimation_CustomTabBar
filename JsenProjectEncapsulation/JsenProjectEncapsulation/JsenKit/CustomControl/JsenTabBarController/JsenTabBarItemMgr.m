@@ -79,7 +79,7 @@
     CGFloat plusW = 64;
     CGFloat plusH = 59;
     CGFloat plusY = -15;
-    CGFloat plusX = (IH_DEVICE_WIDTH - plusW)/2.0;
+    CGFloat plusX = (ScreenBoundWidth - plusW)/2.0;
     CGRect plusFrame = CGRectMake(plusX, plusY, plusW, plusH);
     UIButton * plusButton = [[UIButton alloc] initWithFrame:plusFrame];
     if (image_nor !=nil) {

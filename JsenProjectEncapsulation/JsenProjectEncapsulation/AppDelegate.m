@@ -74,7 +74,7 @@
         [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             
             self.window.rootViewController.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
-            [self.window.rootViewController.view setBounds:CGRectMake(0, 0, IH_DEVICE_WIDTH, IH_DEVICE_HEIGHT)];
+            [self.window.rootViewController.view setBounds:CGRectMake(0, 0, ScreenBoundWidth, ScreenBoundHeight)];
         } completion:^(BOOL finished) {
             self.window.rootViewController.view.layer.mask = nil;
             

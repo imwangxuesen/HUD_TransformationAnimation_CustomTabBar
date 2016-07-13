@@ -44,7 +44,7 @@
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height+ 0) style:UITableViewStyleGrouped];
     table.dataSource = self;
     table.delegate   = self;
-    UIImageView *headerView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, IH_DEVICE_WIDTH, 264)];
+    UIImageView *headerView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenBoundWidth, 264)];
     headerView.image = [UIImage imageNamed:@"img_avatar"];
     table.tableHeaderView = headerView;
     [self.view addSubview:table];
