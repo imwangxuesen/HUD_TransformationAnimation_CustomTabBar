@@ -1,3 +1,13 @@
-platform :ios, '6.1'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+target 'JsenProjectEncapsulation' do
+
+inhibit_all_warnings!
 pod 'YYModel'
-pod 'SDWebImage', '~>3.7'
+pod 'SDWebImage'
+
+end
+
+
